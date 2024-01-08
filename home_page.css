@@ -1,6 +1,7 @@
 ul {
     display: flex;
     list-style-type: none;
+    margin: 0%;
 }
 
 li{
@@ -8,27 +9,20 @@ li{
     list-style-type: none;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    max-width: 400px;
-    margin: 0;
-    /* border: 2px solid blue; */
-    /* padding: .5em; */
 }
 
 img {    
-    max-width: 99%;
-    max-height: 99%;
+    max-width: 75%;
+    max-height: 75%;
 }
 
 .top_bar{
-    max-height: 300px;
+    height: 30%;
     background-color: #023047;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 60px;
+    font-size: 500%;
     font-weight: bolder;
-    margin: 0%;
-    display:flex;
+    display: flex;
     text-align: center;
     place-content: center;
 }
@@ -36,15 +30,66 @@ img {
 .projects {
     background-color: #FF1744;
     margin: 0%;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    place-content: center;
+    align-items: center;
+    display: flex; 
+    font-size: 200%;
+    height: 9%;
+    /* padding-top: 1%; */
+}
+
+.icons {
+    height: 100%;
+}
+
+.center {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 22fr 2fr;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid white;
+    margin: 1em 0;
+    padding: 0;
 }
 
 .nav_bar {
     background-color: #FB8500;
-    margin: 0%;
+    color: white;
+    padding: 5%;
+    text-align: right;
+    padding-left: 15%;
+    padding-right: 10%;
+    font-weight:500;
+    font-size: 110%;
+    height: 95%;
+}
+
+
+footer {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #023047;
+    color: white;
+    font-size: 90%;
+    font-weight: bold;
+    padding: 3%;
+    text-align: center;
 }
 
 body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0%;
     margin: 0%;
     border: black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
