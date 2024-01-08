@@ -16,6 +16,11 @@ img {
     max-height: 75%;
 }
 
+.semicircle {
+    clip-path: ellipse(5vh 100% at 50% 0);
+    /* rotate: 135deg; */
+}
+
 .top_bar{
     height: 30%;
     background-color: #023047;
@@ -27,7 +32,7 @@ img {
     place-content: center;
 }
 
-.projects {
+.projects_header {
     background-color: #FF1744;
     margin: 0%;
     color: white;
@@ -45,6 +50,18 @@ img {
     height: 100%;
 }
 
+.icon_img {
+    height: 10vh;
+    width: 10vh;
+    cursor: pointer;
+}
+
+.links {
+    display: flex;
+    text-align: center;
+    place-content: center;
+}
+
 .center {
     display: grid;
     height: 100%;
@@ -56,9 +73,14 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid white;
+    border-top: 1px solid #ffffff;
     margin: 1em 0;
     padding: 0;
+}
+
+#li_pad {
+    /* padding-top: 1%; */
+    padding-left: 30%;
 }
 
 .nav_bar {
@@ -70,7 +92,6 @@ hr {
     padding-right: 10%;
     font-weight:500;
     font-size: 110%;
-    height: 95%;
 }
 
 
@@ -80,8 +101,15 @@ footer {
     color: white;
     font-size: 90%;
     font-weight: bold;
-    padding: 3%;
+    padding-top: 4%;
+    padding-left: 20%;
     text-align: center;
+    place-content: center;
+    /* background-color: white; */
+    mask-border: ellipse(5vh 100% at 5vh 0);
+    -webkit-background-clip: padding-box; /* For Safari/Chrome */
+    background-clip: padding-box; /* Apply background-clip to have different styling inside and outside */
+    overflow: hidden; /* Ensure content outside the clip-path is hidden */
 }
 
 body {
