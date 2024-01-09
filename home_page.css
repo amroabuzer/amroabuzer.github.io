@@ -1,7 +1,27 @@
-ul {
+.vertical_lists{
+    margin: 0%;
+    padding: 0%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.horizontal_lists{
     display: flex;
     list-style-type: none;
     margin: 0%;
+    text-align: center;
+    place-content: center;
+}
+
+.horizontal_lists2{
+    display: flex;
+    list-style-type: none;
+    margin: 0%;
+    /* padding: 3%; */
+    text-align: center;
+    place-content: center;
 }
 
 li{
@@ -9,6 +29,7 @@ li{
     list-style-type: none;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 img {    
@@ -59,6 +80,12 @@ img {
     cursor: pointer;
 }
 
+.icon_img2 {
+    height: 7vh;
+    width: 7vh;
+    cursor: pointer;
+}
+
 .links {
     display: flex;
     text-align: center;
@@ -77,13 +104,13 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid #ffffff;
-    margin: 1em 0;
+    margin: 0.75em 0;
     padding: 0;
 }
 
 #li_pad {
     /* padding-top: 1%; */
-    /* padding-left: 25%; */
+    padding-left: 5vh;
 }
 
 .nav_bar {
@@ -116,7 +143,7 @@ body {
     padding: 0%;
     margin: 0%;
     border: black;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     z-index: 0;
@@ -126,6 +153,7 @@ body {
     position: relative;
     display: inline-block;
     transform-origin: top left;
+    scale: 0.85;
 }
 
 .watermelon_image {
@@ -134,4 +162,14 @@ body {
     transform: rotate(45deg);
     cursor: pointer;
     /* height: 100%; */
+}
+
+#pp {
+    cursor: pointer;
+}
+
+.name_icon {
+    /* font-size: 20vh; */
+    font-weight: bold;
+    color: #ffffff83;
 }
