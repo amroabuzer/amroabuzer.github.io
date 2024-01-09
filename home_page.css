@@ -17,12 +17,19 @@ img {
 }
 
 .semicircle {
-    clip-path: ellipse(5vh 100% at 50% 0);
-    /* rotate: 135deg; */
+    top: 8%;
+    left: -10%;
+    position: absolute;
+    width: 90%;
+    height: 55%;
+    clip-path: ellipse(48% 100% at 50% 0);
+    rotate: 135deg;
+    z-index: 1;
+    background-color:#023047;
 }
 
 .top_bar{
-    height: 30%;
+    height: 30vh;
     background-color: #023047;
     color: white;
     font-size: 500%;
@@ -42,12 +49,8 @@ img {
     align-items: center;
     display: flex; 
     font-size: 200%;
-    height: 9%;
+    height: 8vh;
     /* padding-top: 1%; */
-}
-
-.icons {
-    height: 100%;
 }
 
 .icon_img {
@@ -64,7 +67,7 @@ img {
 
 .center {
     display: grid;
-    height: 100%;
+    height: 70vh;
     grid-template-columns: 2fr 5fr;
     grid-template-rows: 22fr 2fr;
 }
@@ -80,7 +83,7 @@ hr {
 
 #li_pad {
     /* padding-top: 1%; */
-    padding-left: 30%;
+    /* padding-left: 25%; */
 }
 
 .nav_bar {
@@ -94,22 +97,18 @@ hr {
     font-size: 110%;
 }
 
-
 footer {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #023047;
     color: white;
-    font-size: 90%;
+    font-size: 105%;
     font-weight: bold;
-    padding-top: 4%;
+    /* padding-top: 4%; */
     padding-left: 20%;
     text-align: center;
     place-content: center;
     /* background-color: white; */
-    mask-border: ellipse(5vh 100% at 5vh 0);
-    -webkit-background-clip: padding-box; /* For Safari/Chrome */
-    background-clip: padding-box; /* Apply background-clip to have different styling inside and outside */
-    overflow: hidden; /* Ensure content outside the clip-path is hidden */
+    /* clip-path: ellipse(5vh 100% at 5vh 0); */
 }
 
 body {
@@ -120,4 +119,19 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    z-index: 0;
+}
+
+.watermelon_container {
+    position: relative;
+    display: inline-block;
+    transform-origin: top left;
+}
+
+.watermelon_image {
+    top:0%;
+    left:0%;
+    transform: rotate(45deg);
+    cursor: pointer;
+    /* height: 100%; */
 }
