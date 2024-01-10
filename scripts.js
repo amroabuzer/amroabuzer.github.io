@@ -80,7 +80,7 @@ let WatermelonButton = {
 
     change_side: function() {
         if(this.red_melon) {this.move_melon(135, true); this.red_melon = false;}
-        else {this.move_melon(315, true); this.red_melon = true; this.rotations++}
+        else {this.move_melon(315, true); this.red_melon = true; this.rotations++;}
     },
 };
 
@@ -93,9 +93,8 @@ watermelon.addEventListener('mouseout', function(){
     
     WatermelonButton.slight_anti_rotation();
 });
-    
+
 watermelon.addEventListener('click', function(){
-        
     WatermelonButton.change_side();
 });
 
