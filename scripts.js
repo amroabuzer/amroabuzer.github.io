@@ -35,87 +35,69 @@ let WatermelonButton = {
     red_melon_angle: 315,
     red_melon: true,
     angle: 315,
+    rotations: 0,
+
     updateCSS: function() {
         watermelon.style.transform = `rotate(${this.angle}deg)`;
-        // console.log(this.angle);
     },
 
-    slight_rotation: function() {
-        if(this.red_melon) goal_angle = this.red_melon_angle;
-        else goal_angle = this.yellow_melon_angle;
-
-        let timer = setInterval(() => {
-
-            if (this.angle <= goal_angle - 40) clearInterval(timer);
-            else {
-                this.angle--;
-                this.updateCSS();
-            }
-          }, 2);
-    },
-    
-    slight_anti_rotation: function(){
-
-        if(this.red_melon) init_angle = this.red_melon_angle;
-        else init_angle = this.yellow_melon_angle;
-
-        let timer = setInterval(() => {
-            if (this.angle >= init_angle) clearInterval(timer);
-            else {
-                this.angle++;
-                this.updateCSS();
-            }
-          }, 2);
-        
-        if (this.angle > 360) this.angle = this.angle - 360;
-    },
-
-    change_side: function() {
-        if(this.red_melon) goal_angle = this.red_melon_angle;
-        else goal_angle = this.yellow_melon_angle;
-        
-        if (!this.red_melon){
+    move_melon: function(goal, dir) {
+        if(dir){
             let timer = setInterval(() => {
-                if (this.angle <= this.red_melon_angle - 360) clearInterval(timer);
-                else {
+                if(this.angle <= this.goal_in_quad(goal)) clearInterval(timer);
+                else{
                     this.angle--;
                     this.updateCSS();
+                    console.log('angle:'+this.angle);
+                    console.log('goal:'+this.goal_in_quad(goal));
                 }
-              }, 2);
-              this.red_melon = true;
+            }, 0.5);
         }
         else {
             let timer = setInterval(() => {
-                if (this.angle <= this.yellow_melon_angle) clearInterval(timer);
-                else {
-                    this.angle--;
+                if(this.angle >= this.goal_in_quad(goal)) clearInterval(timer);
+                else{
+                    this.angle++;
                     this.updateCSS();
                 }
-              }, 2);
-              this.red_melon = false;
-            }
+            }, 0.5);
+        }
+    },
 
-        if (this.angle < 0) this.angle = this.angle + 360;
-    }
-}
+    goal_in_quad: function(goal){
+        return goal-360*this.rotations;
+    },
+
+    slight_rotation: function() {
+        if(this.red_melon) this.move_melon(315-45, true);
+        else this.move_melon(135-45, true);
+    },
+
+    slight_anti_rotation: function() {
+        if(this.red_melon) this.move_melon(315, false);
+        else this.move_melon(135, false);
+    },
+
+    change_side: function() {
+        if(this.red_melon) {this.move_melon(135, true); this.red_melon = false;}
+        else {this.move_melon(315, true); this.red_melon = true; this.rotations++}
+    },
+};
 
 watermelon.addEventListener('mouseover', function(){
 
     WatermelonButton.slight_rotation();
-    console.log(WatermelonButton.angle);
-}
-);
+});
 
-// watermelon.addEventListener('mouseout', function(){
+watermelon.addEventListener('mouseout', function(){
     
-//         WatermelonButton.slight_anti_rotation();
-//     })
+    WatermelonButton.slight_anti_rotation();
+});
     
 watermelon.addEventListener('click', function(){
         
-        WatermelonButton.change_side();
-        console.log(WatermelonButton.angle);
-})
+    WatermelonButton.change_side();
+});
 
 document.addEventListener('DOMContentLoaded', toButton(twitter));
 document.addEventListener('DOMContentLoaded', toButton(github));
