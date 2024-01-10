@@ -51,7 +51,7 @@ let WatermelonButton = {
                     console.log('angle:'+this.angle);
                     console.log('goal:'+this.goal_in_quad(goal));
                 }
-            }, 0.5);
+            }, 4);
         }
         else {
             let timer = setInterval(() => {
@@ -60,7 +60,7 @@ let WatermelonButton = {
                     this.angle++;
                     this.updateCSS();
                 }
-            }, 0.5);
+            }, 4);
         }
     },
 
