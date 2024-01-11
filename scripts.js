@@ -107,12 +107,17 @@ watermelon.addEventListener('mouseout', function(){
 });
 
 watermelon.addEventListener('click', function(){
-    WatermelonButton.isMouseClick = true;
-    WatermelonButton.change_side();
-    setTimeout(() => {
-        WatermelonButton.isMouseClick = false;
-    }, 1000);
+    if(!WatermelonButton.isMouseClick){
+        WatermelonButton.isMouseClick = true;
+        WatermelonButton.change_side();
+        setTimeout(() => {
+            WatermelonButton.isMouseClick = false;
+        }, 1000);
+    }
 });
+
+
+
 document.addEventListener('DOMContentLoaded', toButton(twitter));
 document.addEventListener('DOMContentLoaded', toButton(github));
 document.addEventListener('DOMContentLoaded', toButton(linkedin));
