@@ -30,37 +30,42 @@ function toButton(element){
     );
 }
 
+let intervaltime = 2;
+
 let WatermelonButton = {
     yellow_melon_angle: 135,
     red_melon_angle: 315,
     red_melon: true,
     angle: 315,
     rotations: 0,
+    isMouseOver: false,
+    isMouseClick: false,
 
     updateCSS: function() {
         watermelon.style.transform = `rotate(${this.angle}deg)`;
     },
 
     move_melon: function(goal, dir) {
+        console.log("stop_condition:" + this.isMouseOver);
         if(dir){
             let timer = setInterval(() => {
-                if(this.angle <= this.goal_in_quad(goal)) clearInterval(timer);
+                if(this.angle <= this.goal_in_quad(goal) || (!this.isMouseOver || this.isMouseClick)) clearInterval(timer);
                 else{
                     this.angle--;
                     this.updateCSS();
                     console.log('angle:'+this.angle);
                     console.log('goal:'+this.goal_in_quad(goal));
                 }
-            }, 4);
+            }, intervaltime);
         }
         else {
             let timer = setInterval(() => {
-                if(this.angle >= this.goal_in_quad(goal)) clearInterval(timer);
+                if(this.angle >= this.goal_in_quad(goal) || (this.isMouseOver || this.isMouseClick)) clearInterval(timer);
                 else{
                     this.angle++;
                     this.updateCSS();
                 }
-            }, 4);
+            }, intervaltime);
         }
     },
 
@@ -81,23 +86,24 @@ let WatermelonButton = {
     change_side: function() {
         if(this.red_melon) {this.move_melon(135, true); this.red_melon = false;}
         else {this.move_melon(315, true); this.red_melon = true; this.rotations++;}
+        this.isMouseClick = false;
     },
 };
 
 watermelon.addEventListener('mouseover', function(){
-
+    WatermelonButton.isMouseOver = true;
     WatermelonButton.slight_rotation();
 });
 
 watermelon.addEventListener('mouseout', function(){
-    
+    WatermelonButton.isMouseOver = false;
     WatermelonButton.slight_anti_rotation();
 });
 
 watermelon.addEventListener('click', function(){
+    WatermelonButton.isMouseClick = true;
     WatermelonButton.change_side();
 });
-
 document.addEventListener('DOMContentLoaded', toButton(twitter));
 document.addEventListener('DOMContentLoaded', toButton(github));
 document.addEventListener('DOMContentLoaded', toButton(linkedin));
