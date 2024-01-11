@@ -30,13 +30,13 @@ function toButton(element){
     );
 }
 
-let intervaltime = 2;
+let intervaltime = 1;
 
 let WatermelonButton = {
     yellow_melon_angle: 135,
     red_melon_angle: 315,
-    red_melon: true,
-    angle: 315,
+    red_melon: false,
+    angle: 135,
     rotations: 0,
     isMouseOver: false,
     isMouseClick: false,
@@ -57,6 +57,7 @@ let WatermelonButton = {
         if(dir){
             let timer = setInterval(() => {
                 if(this.angle <= this.goal_in_quad(goal) || this.buttonlogic()) clearInterval(timer);
+                // both mouse over and mouse click go in the same direction
                 else{
                     this.angle--;
                     this.updateCSS();
@@ -91,8 +92,17 @@ let WatermelonButton = {
     },
 
     change_side: function() {
-        if(this.red_melon) {this.move_melon(135, true); this.red_melon = false;}
-        else {this.move_melon(315, true); this.red_melon = true; this.rotations++;}
+        if(this.red_melon) {
+            this.move_melon(135, true); 
+            this.red_melon = false; 
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+        else {
+            this.move_melon(315, true); 
+            this.red_melon = true; 
+            this.rotations++; 
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
     },
 };
 
@@ -115,8 +125,6 @@ watermelon.addEventListener('click', function(){
         }, 1000);
     }
 });
-
-
 
 document.addEventListener('DOMContentLoaded', toButton(twitter));
 document.addEventListener('DOMContentLoaded', toButton(github));

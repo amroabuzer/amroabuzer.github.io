@@ -6,6 +6,43 @@
     flex-direction: column;
     align-items: flex-end;
 }
+/* 
+[data-theme="light"] {
+    --top-bar: #023047;
+    --bar-font-color: #095C85;
+    --project: #FF1744;
+    --project-font-color: #6B1313;
+    --nav-bar: #FB8500;
+    --nav-font-color: #b56100;
+    --background: white;
+    --footer-bar: #023047;
+    --footer-font-color: #095C85;
+}*/
+
+[data-theme="light"] {
+    --top-bar: #023047;
+    --bar-font-color: white;
+    --project: #FF1744;
+    --project-font-color: white;
+    --nav-bar: #FB8500;
+    --nav-font-color: white;
+    --background: white;
+    --footer-bar: #023047;
+    --footer-font-color: white;
+} 
+
+[data-theme="dark"] {
+    --top-bar: #000000;
+    --bar-font-color: white;
+    --project: #116D6E;
+    --project-font-color: white;
+    --nav-bar: #383838;
+    --nav-font-color: white;
+    --background: #0000006b;
+    --footer-bar: #000000;
+    --footer-font-color: white;
+    
+}
 
 .horizontal_lists{
     display: flex;
@@ -46,13 +83,13 @@ img {
     clip-path: ellipse(48% 100% at 50% 0);
     rotate: 135deg;
     z-index: 1;
-    background-color:#023047;
+    background-color:var(--footer-bar);
 }
 
 .top_bar{
     height: 30vh;
-    background-color: #023047;
-    color: white;
+    background-color: var(--top-bar);
+    color: var(--bar-font-color);
     font-size: 500%;
     font-weight: bolder;
     display: flex;
@@ -61,9 +98,9 @@ img {
 }
 
 .projects_header {
-    background-color: #FF1744;
+    background-color: var(--project);
     margin: 0%;
-    color: white;
+    color: var(--project-font-color);
     font-weight: bold;
     text-align: center;
     place-content: center;
@@ -97,13 +134,14 @@ img {
     height: 70vh;
     grid-template-columns: 2fr 5fr;
     grid-template-rows: 22fr 2fr;
+    background-color: var(--background);
 }
 
 hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ffffff;
+    border-top: 1px solid var(--nav-font-color);
     margin: 0.75em 0;
     padding: 0;
 }
@@ -114,8 +152,8 @@ hr {
 }
 
 .nav_bar {
-    background-color: #FB8500;
-    color: white;
+    background-color: var(--nav-bar);
+    color: var(--nav-font-color);
     padding: 5%;
     text-align: right;
     padding-left: 15%;
@@ -123,11 +161,15 @@ hr {
     font-weight:500;
     font-size: 110%;
 }
+/* 
+#projects{
+    width: 6vh;
+} */
 
 footer {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #023047;
-    color: white;
+    background-color: var(--footer-bar);
+    color: var(--footer-font-color);
     font-size: 105%;
     font-weight: bold;
     /* padding-top: 4%; */
@@ -159,7 +201,7 @@ body {
 #watermelon {
     top:0%;
     left:0%;
-    transform: rotate(315deg);
+    transform: rotate(135deg);
     cursor: pointer;
     /* height: 100%; */
 }
