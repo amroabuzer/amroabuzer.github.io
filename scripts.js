@@ -45,11 +45,18 @@ let WatermelonButton = {
         watermelon.style.transform = `rotate(${this.angle}deg)`;
     },
 
+    buttonlogic: function(){
+        if(this.isMouseOver===true && this.isMouseClick===false) return false;
+        else if(this.isMouseOver===false && this.isMouseClick===false) return true;
+        else if(this.isMouseOver===true && this.isMouseClick===true) return false;
+        else if(this.isMouseOver===false && this.isMouseClick===true) return false;
+    },
+
     move_melon: function(goal, dir) {
-        console.log("stop_condition:" + this.isMouseOver);
+        console.log("stop_condition:" + this.buttonlogic());
         if(dir){
             let timer = setInterval(() => {
-                if(this.angle <= this.goal_in_quad(goal) || (!this.isMouseOver || this.isMouseClick)) clearInterval(timer);
+                if(this.angle <= this.goal_in_quad(goal) || this.buttonlogic()) clearInterval(timer);
                 else{
                     this.angle--;
                     this.updateCSS();
@@ -60,7 +67,7 @@ let WatermelonButton = {
         }
         else {
             let timer = setInterval(() => {
-                if(this.angle >= this.goal_in_quad(goal) || (this.isMouseOver || this.isMouseClick)) clearInterval(timer);
+                if(this.angle >= this.goal_in_quad(goal) || (this.isMouseOver)) clearInterval(timer);
                 else{
                     this.angle++;
                     this.updateCSS();
@@ -86,7 +93,6 @@ let WatermelonButton = {
     change_side: function() {
         if(this.red_melon) {this.move_melon(135, true); this.red_melon = false;}
         else {this.move_melon(315, true); this.red_melon = true; this.rotations++;}
-        this.isMouseClick = false;
     },
 };
 
@@ -103,6 +109,9 @@ watermelon.addEventListener('mouseout', function(){
 watermelon.addEventListener('click', function(){
     WatermelonButton.isMouseClick = true;
     WatermelonButton.change_side();
+    setTimeout(() => {
+        WatermelonButton.isMouseClick = false;
+    }, 1000);
 });
 document.addEventListener('DOMContentLoaded', toButton(twitter));
 document.addEventListener('DOMContentLoaded', toButton(github));
