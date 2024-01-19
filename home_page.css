@@ -6,8 +6,8 @@
     flex-direction: column;
     align-items: flex-end;
 }
-/* 
-[data-theme="light"] {
+
+/* [data-theme="light"] {
     --top-bar: #023047;
     --bar-font-color: #095C85;
     --project: #FF1744;
@@ -17,7 +17,7 @@
     --background: white;
     --footer-bar: #023047;
     --footer-font-color: #095C85;
-}*/
+} */
 
 [data-theme="light"] {
     --top-bar: #023047;
@@ -26,7 +26,8 @@
     --project-font-color: white;
     --nav-bar: #FB8500;
     --nav-font-color: white;
-    --background: white;
+    --background: beige;
+    --highlights: #FF1744;
     --footer-bar: #023047;
     --footer-font-color: white;
 } 
@@ -34,11 +35,12 @@
 [data-theme="dark"] {
     --top-bar: #000000;
     --bar-font-color: white;
-    --project: #116D6E;
+    --project: #FB2576;
     --project-font-color: white;
     --nav-bar: #383838;
     --nav-font-color: white;
     --background: #0000006b;
+    --highlights: #FB2576;
     --footer-bar: #000000;
     --footer-font-color: white;
     
@@ -52,6 +54,11 @@
     place-content: center;
 }
 
+#arabic {
+    font-family: waseem;
+    font-size: 150%;
+}
+
 .horizontal_lists2{
     display: flex;
     list-style-type: none;
@@ -59,6 +66,59 @@
     /* padding: 3%; */
     text-align: center;
     place-content: center;
+}
+
+.hightlights_lists{
+    display: flex;
+    list-style-type: none;
+    margin-top: 4%;
+    /* margin-bottom: 4%; */
+    /* padding: 3%; */
+    text-align: center;
+    place-content: center;
+}
+
+.hightlights_item{
+    /* display: flex; */
+    /* flex-direction: column; */
+    list-style-type: none;
+    height: 55vh;
+    width: 30vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: var(--highlights);
+    color:var(--nav-font-color);
+    /* padding: 3%; */
+    text-align: center;
+    place-content: center;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    /* border: 2px solid #000000; */
+}
+
+.hightlights_item:hover{
+    transform: scale(1.02);
+    /* border: 1px solid black; */
+}
+
+.highlight_images{
+    border-radius: 20px;
+    max-height: 90%;
+    max-width: 90%;
+}
+
+.highlight_description {
+    padding:5%;
+    font-size: large;
+}
+.highlight {
+    margin: 0%;
+    padding: 0%;
+    position: absolute;
+    top: 0;
+    margin-top: 5%;
+    font-weight: bold;
 }
 
 li{
@@ -69,7 +129,7 @@ li{
     position: relative;
 }
 
-img {    
+.img_pp {    
     max-width: 75%;
     max-height: 75%;
 }
@@ -107,34 +167,51 @@ img {
     align-items: center;
     display: flex; 
     font-size: 200%;
-    height: 6vh;
+    /* height: 6vh; */
     /* padding-top: 1%; */
 }
 
 .icon_img {
-    height: 10vh;
-    width: 10vh;
+    max-width: 75%;
+    max-height: 75%;
+    height:7vh;
+    width:7vh;
     cursor: pointer;
 }
 
 .icon_img2 {
     height: 7vh;
     width: 7vh;
+    max-width: 75%;
+    /* max-height: 75%; */
     cursor: pointer;
-}
-
-.links {
-    display: flex;
-    text-align: center;
-    place-content: center;
 }
 
 .center {
     display: grid;
     height: 70vh;
     grid-template-columns: 2fr 5fr;
-    grid-template-rows: 22fr 2fr;
+    /* grid-template-rows: 22fr 2fr; */
     background-color: var(--background);
+    z-index: 1;
+}
+
+.center_left {
+    display: grid;
+    grid-template-rows: 22fr 2fr;
+    height: 70vh;
+}
+
+.center_right {
+    display: grid;
+    grid-template-rows: 2fr 22fr;
+    height: 70vh;
+}
+
+.highlights {
+    /* background-color: #383838; */
+    position: relative;
+    /* display: flex; */
 }
 
 hr {
@@ -161,10 +238,6 @@ hr {
     font-weight:500;
     font-size: 110%;
 }
-/* 
-#projects{
-    width: 6vh;
-} */
 
 footer {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -181,6 +254,7 @@ footer {
 }
 
 body {
+    /* margin: 0 0 100vh 0; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0%;
     margin: 0%;
@@ -201,6 +275,9 @@ body {
 #watermelon {
     top:0%;
     left:0%;
+    max-width: 75%;
+    max-height: 75%;
+
     transform: rotate(135deg);
     cursor: pointer;
     /* height: 100%; */
@@ -208,10 +285,35 @@ body {
 
 #pp {
     cursor: pointer;
+    border-radius: 50%;
+}
+
+#pp:hover{
+    box-shadow: 0 0 0 2px white;
+
+    box-sizing:border-box;
+}
+#pp:hover::after{
+    position: absolute;
 }
 
 .name_icon {
     /* font-size: 20vh; */
     font-weight: bold;
     color: #ffffff83;
+}
+
+.highlight_description_box {
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    background-color: #0088ff;
+    border:2px solid #005baa;
+}
+
+.description{
+    /* font-size: medium; */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 100;
+    margin: 1%;
 }
