@@ -1,0 +1,16 @@
+Required:
+1- animate watermelon - done
+2- dark/light mode - done
+3- add links to the buttons - done
+4- projects animations:
+    - Buses project
+    - PMSD robotics project
+    - kinect fusion project
+    - makeathon project
+5- fix up button mask 
+6- different aspect ratios
+
+Optional:
+1- Add easter egg game
+2- put animation around profile when hovering
+3- add changing hellos
