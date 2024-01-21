@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en-US" data-theme="light">
   <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="home_page.css" /> 
-    <title>Amr N. Abuzer</title>
-  </head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="home_page.css" /> 
+        <title>Amr N. Abuzer</title>
+        <link rel="icon" href="icons/watermelon.drawio.svg" />
+</head>
   <body>
     
         <div class="top_bar">
@@ -26,7 +27,7 @@
     
                             <li>
                                 <ul class="horizontal_lists">
-                                    <li><a href="https://twitter.com/amroabuzer"><img class="icon_img" id="twitter" src="icons/opaque/x-twitter.svg"></a></li>
+                                    <li><a href="https://twitter.com/amroabuzer"><img class="icon_img" id="twitter" src="icons/opaque/twitter.svg"></a></li>
                                     <li><a href="https://github.com/amroabuzer"><img class="icon_img" id="github" src="icons/opaque/github-alt.svg"></a></li>
                                     <li><a href="https://www.linkedin.com/in/amr-abuzer"><img class="icon_img" id="linkedin" src="icons/opaque/linkedin.svg"></a></li>
                                     <li><a href="https://scholar.google.de/citations?user=zzd-Hc0AAAAJ&hl=en"><img class="icon_img" id="scholar"src="icons/opaque/google-scholar.svg"></a></li>
@@ -38,7 +39,7 @@
                                 <div class="name_icon">
                                     <ul class="horizontal_lists2">
                                         <li> 
-                                            TU Munich 
+                                            <div id="map_txt">TU Munich</div>
                                         </li> 
                                         <li> <a href="https://www.tum.de"><img class="icon_img2" id="map" src="icons/opaque/map-location-solid.svg"> </a></li>
                                     </ul>
@@ -52,24 +53,24 @@
                             <div class="name_icon">
                                 <ul class="horizontal_lists2">
                                     <li> 
-                                        Projects
+                                        <div id="project_txt">Projects</div>
                                     </li> 
                                     <li><a class="icon_img2" href="projects.html"><img class="icon_img2" id="projects" src="icons/opaque/clipboard-list-solid.svg"></a></li>
                                 </ul>
                             </div>
                             
                         </li>
-                        <!-- <li> 
+                        <li> 
                             <div class="name_icon">
                                 <ul class="horizontal_lists2">
                                     <li> 
-                                        Poetry
+                                        <div id="poetry_txt">Poetry</div>
                                     </li> 
-                                    <li><a class="icon_img2" href="poetry.html"><img class="icon_img2" id="poetry" src="icons/opaque/book-open-solid.svg"></a></li>
+                                    <li><a class="icon_img2" href="poetry.html"><img class="icon_img2" id="poetry" src="icons/opaque/book-solid.svg"></a></li>
                                 </ul>
                             </div>
                             
-                        </li>   -->
+                        </li>  
                     </ul>
                 </div>
                 
@@ -101,21 +102,33 @@
                             <ul class="highlight">
                                 <li><img class="highlight_images" src="images/KinectFusion512.png"></li>
                                 <li class="highlight_description">Kinect Fusion</li>
-                                <li><div class="highlight_description_box"></div> <div class="description"> C++</div></li>
+                                <li class="programming_languages">
+                                    <button class="button-45" id="cpp">C++</button> 
+                                    <button class="button-45" id="iiid">3D Scanning</button>
+                                    <button class="button-45" id="cuda">Cuda</button>
+                                </li>
                             </ul>
                         </li>
                         <li class="hightlights_item"> 
                             <ul class="highlight">
-                                <li><video autoplay loop class="highlight_images" src="images/US-button.mov"></li>
+                                <li><video autoplay muted loop class="highlight_images" src="images/US-button.mov"></li>
                                 <li class="highlight_description">Robotic Ultrasound</li>
-                                <li></li>
+                                <li class="programming_languages">
+                                    <button class="button-45" id="python">Python</button> 
+                                    <button class="button-45" id="sklearn">Scikit-learn</button>
+                                    <button class="button-45" id="ros">ROS</button>
+                                </li>
                             </ul>
                         </li>
                         <li class="hightlights_item"> 
                             <ul class="highlight">
                                 <li><img class="highlight_images" src="images/MLMI.png"></li>
                                 <li class="highlight_description">SCOPE Segmentation</li>
-                                <li></li>
+                                <li class="programming_languages">
+                                    <button class="button-45" id="pytorchG">Pytorch-Geometric</button>
+                                    <button class="button-45" id="python">Python</button> 
+                                    <button class="button-45" id="pytorch">Pytorch</button>
+                                </li>
                             </ul>
                         </li>
                     </ul>

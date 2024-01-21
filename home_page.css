@@ -30,6 +30,14 @@
     --highlights: #FF1744;
     --footer-bar: #023047;
     --footer-font-color: white;
+    --CPP-color: #044F88;
+    --3Dscanning-color: #800080;
+    --Python-color: #0000FF; 
+    --ROS-color: #008080;
+    --Cuda-color: #76B900;
+    --sklearn-color: orange;
+    --pytorch-color: red;
+    --pytorchG-color: rgb(184, 0, 92);
 } 
 
 [data-theme="dark"] {
@@ -43,7 +51,14 @@
     --highlights: #FB2576;
     --footer-bar: #000000;
     --footer-font-color: white;
-    
+    --CPP-color: #044F88;
+    --3Dscanning-color: #800080;
+    --Python-color: #0000FF; 
+    --ROS-color: #008080;
+    --Cuda-color: #76B900;
+    --sklearn-color: darkorange;
+    --pytorch-color: red;
+    --pytorchG-color: rgb(184, 0, 92);
 }
 
 .horizontal_lists{
@@ -93,7 +108,7 @@
     place-content: center;
     border-radius: 20px;
     position: relative;
-    cursor: pointer;
+    /* cursor: pointer; */
     /* border: 2px solid #000000; */
 }
 
@@ -135,13 +150,12 @@ li{
 }
 
 .semicircle {
-    top: 8%;
-    left: -10%;
+    top: 0%;
+    left: 0%;
     position: absolute;
-    width: 90%;
-    height: 55%;
-    clip-path: ellipse(48% 100% at 50% 0);
-    rotate: 135deg;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
     z-index: 1;
     background-color:var(--footer-bar);
 }
@@ -174,14 +188,14 @@ li{
 .icon_img {
     max-width: 75%;
     max-height: 75%;
-    height:7vh;
-    width:7vh;
+    height:6vh;
+    width:6vh;
     cursor: pointer;
 }
 
 .icon_img2 {
-    height: 7vh;
-    width: 7vh;
+    height: 6vh;
+    width: 6vh;
     max-width: 75%;
     /* max-height: 75%; */
     cursor: pointer;
@@ -316,4 +330,79 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 100;
     margin: 1%;
+}
+.button-45 {
+  align-items: center;
+  background-color: #FFE7E7;
+  background-position: 0 0;
+  border: 1px solid #FEE0E0;
+  border-radius: 30px;
+  box-sizing: border-box;
+  color: #D33A2C;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 1.5px;
+  margin-left: 1.5px;
+  margin-bottom: 3px;
+  /* line-height: 33.4929px; */
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  /* padding: 2px 12px; */
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+#cpp {
+    color: var(--CPP-color);
+    border-color: var(--CPP-color);
+}
+
+#iiid {
+    color: var(--3Dscanning-color);
+    border-color: var(--CPP-color);
+}
+
+#cuda {
+    color: var(--Cuda-color);
+    border-color: var(--Cuda-color);
+}
+
+#python {
+    color: var(--Python-color);
+    border-color: var(--Python-color);
+}
+
+#ros {
+    color: var(--ROS-color);
+    border-color: var(--Ros-color);
+}
+
+#sklearn {
+    color: var(--sklearn-color);
+    border-color: var(--sklearn-color);
+}
+
+#pytorch {
+    color: var(--pytorch-color);
+    border-color: var(--pytorch-color);
+}
+
+#pytorchG {
+    color: var(--pytorchG-color);
+    border-color: var(--pytorchG-color);
+}
+
+.programming_languages {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px
 }
