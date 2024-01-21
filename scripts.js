@@ -8,6 +8,10 @@ const projects = document.getElementById('projects');
 const poetry = document.getElementById('poetry');
 const watermelon = document.getElementById('watermelon');
 
+const map_txt = doucment.getElementById('map_txt');
+const project_txt = doucment.getElementById('project_txt');
+const poetry_txt = document.getElementById('poetry_txt');
+
 function toButton(element){
     element.addEventListener('mouseover', function(){
 
@@ -15,7 +19,6 @@ function toButton(element){
         // console.log(src_string);
         const new_string = src_string.slice(0, -2).concat(['solid']).concat(src_string.slice(-1));
         element.src = new_string.join('/');
-
         }
     );
 
@@ -29,6 +32,32 @@ function toButton(element){
         }
     );
 }
+
+function toButtonAndText(element, element_txt){
+    element.addEventListener('mouseover', function(){
+
+        const src_string = element.src.split('/');
+        // console.log(src_string);
+        const new_string = src_string.slice(0, -2).concat(['solid']).concat(src_string.slice(-1));
+        element.src = new_string.join('/');
+
+        element_txt.style.color = '#ffffff';
+        }
+    );
+
+    element.addEventListener('mouseout', function(){
+
+        const src_string = element.src.split('/');
+        // console.log(src_string);
+        const new_string = src_string.slice(0, -2).concat(['opaque']).concat(src_string.slice(-1));
+        element.src = new_string.join('/');
+        
+        element_txt.style.color = '#ffffff83';
+        }
+    );
+}
+
+
 
 let intervaltime = 1;
 
@@ -131,6 +160,7 @@ document.addEventListener('DOMContentLoaded', toButton(github));
 document.addEventListener('DOMContentLoaded', toButton(linkedin));
 document.addEventListener('DOMContentLoaded', toButton(scholar));
 document.addEventListener('DOMContentLoaded', toButton(email));
-document.addEventListener('DOMContentLoaded', toButton(map));
-document.addEventListener('DOMContentLoaded', toButton(projects));
-document.addEventListener('DOMContentLoaded', toButton(poetry));
+
+document.addEventListener('DOMContentLoaded', toButtonAndText(map, map_txt));
+document.addEventListener('DOMContentLoaded', toButtonAndText(projects, project_txt));
+document.addEventListener('DOMContentLoaded', toButtonAndText(poetry, poet));
