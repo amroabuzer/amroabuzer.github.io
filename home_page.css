@@ -33,11 +33,12 @@
     --CPP-color: #044F88;
     --3Dscanning-color: #800080;
     --Python-color: #0000FF; 
-    --ROS-color: #008080;
+    --ROS-color: #2F4F4F;
     --Cuda-color: #76B900;
     --sklearn-color: orange;
     --pytorch-color: red;
     --pytorchG-color: rgb(184, 0, 92);
+    --imfusion: #008080;
 } 
 
 [data-theme="dark"] {
@@ -54,11 +55,12 @@
     --CPP-color: #044F88;
     --3Dscanning-color: #800080;
     --Python-color: #0000FF; 
-    --ROS-color: #008080;
+    --ROS-color: #2F4F4F;
     --Cuda-color: #76B900;
     --sklearn-color: darkorange;
     --pytorch-color: red;
     --pytorchG-color: rgb(184, 0, 92);
+    --imfusion: #008080;
 }
 
 .horizontal_lists{
@@ -401,8 +403,29 @@ body {
     border-color: var(--pytorchG-color);
 }
 
+#imfusion {
+    color: var(--imfusion);
+    border-color: var(--imfusion);
+}
+
 .programming_languages {
     display: flex;
     flex-wrap: wrap;
     margin: 5px
+}
+
+.button_txt {
+    cursor:default;
+}
+
+.description_bullet_points {
+    background-color: #FEE0E0;
+    color: black;
+    font-weight: 100;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    margin: 5%;
+    padding: 3%;
+    border: 1px solid black;
 }
