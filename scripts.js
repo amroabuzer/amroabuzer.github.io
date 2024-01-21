@@ -8,8 +8,8 @@ const projects = document.getElementById('projects');
 const poetry = document.getElementById('poetry');
 const watermelon = document.getElementById('watermelon');
 
-const map_txt = doucment.getElementById('map_txt');
-const project_txt = doucment.getElementById('project_txt');
+const map_txt = document.getElementById('map_txt');
+const project_txt = document.getElementById('project_txt');
 const poetry_txt = document.getElementById('poetry_txt');
 
 function toButton(element){
@@ -163,4 +163,4 @@ document.addEventListener('DOMContentLoaded', toButton(email));
 
 document.addEventListener('DOMContentLoaded', toButtonAndText(map, map_txt));
 document.addEventListener('DOMContentLoaded', toButtonAndText(projects, project_txt));
-document.addEventListener('DOMContentLoaded', toButtonAndText(poetry, poet));
+document.addEventListener('DOMContentLoaded', toButtonAndText(poetry, poetry_txt));
