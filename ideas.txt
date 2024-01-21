@@ -7,10 +7,11 @@ Required:
     - PMSD robotics project
     - kinect fusion project
     - makeathon project
-5- fix up button mask 
-6- different aspect ratios
+5- add under construction for poetry and books
+6- fix up button mask 
+7- different aspect ratios
 
 Optional:
 1- Add easter egg game
-2- put animation around profile when hovering
+2- put animation around profile when hovering - done
 3- add changing hellos
