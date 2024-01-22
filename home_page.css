@@ -70,10 +70,12 @@
     text-align: center;
     place-content: center;
 }
-
+#title {
+    font-size: 120%;
+}
 #arabic {
     font-family: waseem;
-    font-size: 150%;
+    font-size: 200%;
 }
 
 .horizontal_lists2{
@@ -88,7 +90,7 @@
 .hightlights_lists{
     display: flex;
     list-style-type: none;
-    margin-top: 4%;
+    margin-top: 6%;
     /* margin-bottom: 4%; */
     /* padding: 3%; */
     text-align: center;
@@ -99,7 +101,7 @@
     /* display: flex; */
     /* flex-direction: column; */
     list-style-type: none;
-    height: 55vh;
+    height: 51vh;
     width: 30vh;
     margin-left: 5%;
     margin-right: 5%;
@@ -123,11 +125,15 @@
     border-radius: 20px;
     max-height: 90%;
     max-width: 90%;
+    /* width: 200px; */
+    height: 20%;
 }
 
 .highlight_description {
     padding:5%;
-    font-size: large;
+    font-size:larger;
+    font-weight: bolder;
+    cursor: default;
 }
 .highlight {
     margin: 0%;
@@ -149,6 +155,12 @@ li{
 .img_pp {    
     max-width: 75%;
     max-height: 75%;
+    scale: 1.2;
+}
+.img_pp_side_page {    
+    max-width: 75%;
+    max-height: 75%;
+    scale: 0.9;
 }
 
 .semicircle {
@@ -182,9 +194,9 @@ li{
     place-content: center;
     align-items: center;
     display: flex; 
-    font-size: 200%;
+    font-size: 240%;
     /* height: 6vh; */
-    /* padding-top: 1%; */
+    padding-bottom: 0.3%;
 }
 
 .icon_img {
@@ -209,13 +221,27 @@ li{
     grid-template-columns: 2fr 5fr;
     /* grid-template-rows: 22fr 2fr; */
     background-color: var(--background);
-    z-index: 1;
+    /* z-index: 1; */
 }
 
+
+.center_side_page {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 2fr 5fr;
+    /* grid-template-rows: 22fr 2fr; */
+    background-color: var(--background);
+    /* z-index: 1; */
+}
 .center_left {
     display: grid;
     grid-template-rows: 22fr 2fr;
     height: 70vh;
+}
+.center_left_side_page {
+    display: grid;
+    grid-template-rows: 40fr 2fr;
+    height: 100vh;
 }
 
 .center_right {
@@ -223,11 +249,58 @@ li{
     grid-template-rows: 2fr 22fr;
     height: 70vh;
 }
+.center_right_side_page {
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: 2fr 40fr;
+    /* height: 100vh; */
+}
 
 .highlights {
     /* background-color: #383838; */
     position: relative;
     /* display: flex; */
+    margin-bottom: 2%;
+}
+
+.projects {
+    /* background-color: #383838; */
+    position: relative;
+    /* display: flex; */
+    margin-bottom: 2%;
+}
+
+.projects_list {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-top: 2%;
+    /* margin-bottom: 4%; */
+    /* padding: 3%; */
+    padding-left: 0%;
+    text-align: center;
+    place-content: center;
+}
+
+.project_item {
+    /* display: flex; */
+    /* flex-direction: column; */
+    list-style-type: none;
+    width: 90%;
+    height: 15vh;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: var(--highlights);
+    color:var(--nav-font-color);
+    /* padding: 3%; */
+    text-align: center;
+    place-content: center;
+    border-radius: 20px;
+    position: relative;
+    /* cursor: pointer; */
+    /* border: 2px solid #000000; */
 }
 
 hr {
@@ -248,11 +321,16 @@ hr {
     background-color: var(--nav-bar);
     color: var(--nav-font-color);
     padding: 5%;
-    text-align: right;
+    text-align: center;
     padding-left: 15%;
     padding-right: 10%;
     font-weight:500;
-    font-size: 110%;
+    font-size: 125%;
+}
+
+#nav_p {
+    text-align: right;
+    margin-top: 2%;
 }
 
 footer {
@@ -274,11 +352,9 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0%;
     margin: 0%;
-    border: black;
-    /* height: 100vh; */
     display: flex;
     flex-direction: column;
-    z-index: 0;
+    /* z-index: 0; */
 }
 
 .watermelon_container {
@@ -341,7 +417,7 @@ body {
   border-radius: 30px;
   box-sizing: border-box;
   color: #D33A2C;
-  cursor: pointer;
+  cursor: default;
   display: flex;
   font-size: 1rem;
   font-weight: 700;
@@ -419,13 +495,20 @@ body {
 }
 
 .description_bullet_points {
+    text-align: left;
     background-color: #FEE0E0;
     color: black;
-    font-weight: 100;
+    font-weight: 500;
+    font-size: medium;
+    /* border-radius: 20px; */
     border-radius: 20px;
     width: 100%;
-    height: 100%;
+    height: 90%;
     margin: 5%;
-    padding: 3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
     border: 1px solid black;
+    cursor: default;
 }
