@@ -19,6 +19,11 @@
     --footer-font-color: #095C85;
 } */
 
+html {
+    overflow-y: scroll;
+    /* overflow-x: scroll; */
+}
+
 [data-theme="light"] {
     --top-bar: #023047;
     --bar-font-color: white;
@@ -72,10 +77,12 @@
 }
 #title {
     font-size: 120%;
+    cursor:default;
 }
 #arabic {
     font-family: waseem;
     font-size: 200%;
+    cursor: default;
 }
 
 .horizontal_lists2{
@@ -131,7 +138,7 @@
 
 .highlight_description {
     padding:5%;
-    font-size:larger;
+    font-size:large;
     font-weight: bolder;
     cursor: default;
 }
@@ -161,6 +168,7 @@ li{
     max-width: 75%;
     max-height: 75%;
     scale: 0.9;
+    margin: 1%
 }
 
 .semicircle {
@@ -187,6 +195,7 @@ li{
 
 .projects_header {
     background-color: var(--project);
+    border-bottom: 1px solid black;
     margin: 0%;
     color: var(--project-font-color);
     font-weight: bold;
@@ -197,6 +206,9 @@ li{
     font-size: 240%;
     /* height: 6vh; */
     padding-bottom: 0.3%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .icon_img {
@@ -226,12 +238,10 @@ li{
 
 
 .center_side_page {
+    /* display: flex; */
     display: grid;
-    height: 100vh;
     grid-template-columns: 2fr 5fr;
-    /* grid-template-rows: 22fr 2fr; */
     background-color: var(--background);
-    /* z-index: 1; */
 }
 .center_left {
     display: grid;
@@ -242,6 +252,9 @@ li{
     display: grid;
     grid-template-rows: 40fr 2fr;
     height: 100vh;
+    /* width: 29%; */
+    position: sticky;
+    top:0;
 }
 
 .center_right {
@@ -250,9 +263,10 @@ li{
     height: 70vh;
 }
 .center_right_side_page {
+    /* width: 71%; */
     display: flex;
     flex-direction: column;
-    grid-template-rows: 2fr 40fr;
+    grid-template-rows: 2fr 22fr;
     /* height: 100vh; */
 }
 
@@ -289,7 +303,7 @@ li{
     /* flex-direction: column; */
     list-style-type: none;
     width: 90%;
-    height: 15vh;
+    height: 20vh;
     margin-top: 2%;
     margin-bottom: 2%;
     background-color: var(--highlights);
@@ -299,8 +313,12 @@ li{
     place-content: center;
     border-radius: 20px;
     position: relative;
-    /* cursor: pointer; */
+    cursor: pointer;
     /* border: 2px solid #000000; */
+}
+
+.project_item:hover {
+    transform: scale(1.02);
 }
 
 hr {
@@ -331,6 +349,7 @@ hr {
 #nav_p {
     text-align: right;
     margin-top: 2%;
+    cursor:default;
 }
 
 footer {
