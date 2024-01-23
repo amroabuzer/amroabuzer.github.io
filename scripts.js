@@ -12,6 +12,8 @@ const map_txt = document.getElementById('map_txt');
 const project_txt = document.getElementById('project_txt');
 const poetry_txt = document.getElementById('poetry_txt');
 
+document.documentElement.setAttribute('data-theme', 'light');
+
 function toButton(element){
     element.addEventListener('mouseover', function(){
 
@@ -57,7 +59,14 @@ function toButtonAndText(element, element_txt){
     );
 }
 
-
+function keep_preferred_theme(){
+    if(sessionStorage.getItem("data-theme") == "dark" && !WatermelonButton.red_melon){
+        WatermelonButton.angle = WatermelonButton.red_melon_angle;
+        WatermelonButton.red_melon = true;
+        document.documentElement.setAttribute('data-theme', 'dark');
+        WatermelonButton.updateCSS();
+    }
+} 
 
 let intervaltime = 1;
 
@@ -125,12 +134,14 @@ let WatermelonButton = {
             this.move_melon(135, true); 
             this.red_melon = false; 
             document.documentElement.setAttribute('data-theme', 'light');
+            sessionStorage.setItem("data-theme", "light");
         }
         else {
             this.move_melon(315, true); 
             this.red_melon = true; 
             this.rotations++; 
             document.documentElement.setAttribute('data-theme', 'dark');
+            sessionStorage.setItem("data-theme", "dark");
         }
     },
 };
@@ -154,6 +165,8 @@ watermelon.addEventListener('click', function(){
         }, 1000);
     }
 });
+
+document.addEventListener('DOMContentLoaded', keep_preferred_theme());
 
 document.addEventListener('DOMContentLoaded', toButton(twitter));
 document.addEventListener('DOMContentLoaded', toButton(github));
