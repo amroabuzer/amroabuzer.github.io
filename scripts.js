@@ -12,7 +12,8 @@ const map_txt = document.getElementById('map_txt');
 const project_txt = document.getElementById('project_txt');
 const poetry_txt = document.getElementById('poetry_txt');
 
-document.documentElement.setAttribute('data-theme', 'light');
+// document.documentElement.setAttribute('data-theme', 'light');
+let mySessionData = sessionStorage;
 
 function toButton(element){
     element.addEventListener('mouseover', function(){
@@ -60,10 +61,18 @@ function toButtonAndText(element, element_txt){
 }
 
 function keep_preferred_theme(){
-    if(sessionStorage.getItem("data-theme") == "dark" && !WatermelonButton.red_melon){
+    console.log(mySessionData.getItem("data-theme"));
+    console.log("test");
+    if(mySessionData.getItem("data-theme") == "dark" && !WatermelonButton.red_melon){
         WatermelonButton.angle = WatermelonButton.red_melon_angle;
         WatermelonButton.red_melon = true;
         document.documentElement.setAttribute('data-theme', 'dark');
+        WatermelonButton.updateCSS();
+    }
+    else {
+        WatermelonButton.angle = WatermelonButton.yellow_melon_angle;
+        WatermelonButton.red_melon = false;
+        document.documentElement.setAttribute('data-theme', 'light');
         WatermelonButton.updateCSS();
     }
 } 
@@ -71,10 +80,10 @@ function keep_preferred_theme(){
 let intervaltime = 1;
 
 let WatermelonButton = {
-    yellow_melon_angle: 135,
-    red_melon_angle: 315,
+    yellow_melon_angle: 140,
+    red_melon_angle: 320,
     red_melon: false,
-    angle: 135,
+    angle: 140,
     rotations: 0,
     isMouseOver: false,
     isMouseClick: false,
@@ -91,7 +100,7 @@ let WatermelonButton = {
     },
 
     move_melon: function(goal, dir) {
-        console.log("stop_condition:" + this.buttonlogic());
+        // console.log("stop_condition:" + this.buttonlogic());
         if(dir){
             let timer = setInterval(() => {
                 if(this.angle <= this.goal_in_quad(goal) || this.buttonlogic()) clearInterval(timer);
@@ -99,8 +108,8 @@ let WatermelonButton = {
                 else{
                     this.angle--;
                     this.updateCSS();
-                    console.log('angle:'+this.angle);
-                    console.log('goal:'+this.goal_in_quad(goal));
+                    // console.log('angle:'+this.angle);
+                    // console.log('goal:'+this.goal_in_quad(goal));
                 }
             }, intervaltime);
         }
@@ -120,28 +129,28 @@ let WatermelonButton = {
     },
 
     slight_rotation: function() {
-        if(this.red_melon) this.move_melon(315-45, true);
-        else this.move_melon(135-45, true);
+        if(this.red_melon) this.move_melon(320-45, true);
+        else this.move_melon(140-45, true);
     },
 
     slight_anti_rotation: function() {
-        if(this.red_melon) this.move_melon(315, false);
-        else this.move_melon(135, false);
+        if(this.red_melon) this.move_melon(320, false);
+        else this.move_melon(140, false);
     },
 
     change_side: function() {
         if(this.red_melon) {
-            this.move_melon(135, true); 
+            this.move_melon(140, true); 
             this.red_melon = false; 
             document.documentElement.setAttribute('data-theme', 'light');
-            sessionStorage.setItem("data-theme", "light");
+            mySessionData.setItem("data-theme", "light");
         }
         else {
-            this.move_melon(315, true); 
+            this.move_melon(320, true); 
             this.red_melon = true; 
             this.rotations++; 
             document.documentElement.setAttribute('data-theme', 'dark');
-            sessionStorage.setItem("data-theme", "dark");
+            mySessionData.setItem("data-theme", "dark");
         }
     },
 };
