@@ -115,17 +115,77 @@
                     </p>
                     <img src="../images/Kinect_Fusion/Point_Cloud.png">
                     <p> 
-                        Finally, the normal map is created by taking the cross product of two vectors: the vector connecting the pixel with the one above and the vector connecting the 
+                        Finally, the normal map is created by taking the cross product of two vectors: the vector connecting the pixel with the one above it and the vector connecting the 
                         pixel with the one to its right. This preprocessing pipeline is applied to a subsampled depth map pyramid to produce vertices and normals for both 2x and 4x 
                         subsampled depth maps.
                     </p>
                     <h4> Pose Estimation </h4>
-                    
+                    <p>
+                        In our work we aligned measured surfaces with raycasted "predicted" surfaces from the previous frame as shown in the overview figure.
+                        This alignment process is iterative and begins with an identity transformation for the first frame. We update our Truncated Signed Distance Function (TSDF) 
+                        and obtain raycasted predictions in each iteration. 
+                        <br>
+                        To establish correspondences between the current frame's vertices and normals with those of the previous frame, we employ projective data association, as seen below:
+                    </p>
+                    <figure>
+                        <img src="../images/Kinect_Fusion/projective_data.gif">
+                        <figcaption>Image Source: <a href="https://www.robot-learning.uk/hybrid-icp">https://www.robot-learning.uk/hybrid-icp</a></figcaption>
+                    </figure>
+                    <p>
+                        To find correspondences, we transform the current frame's vertices and normals into global coordinates using our iterative transformation. Then, we 
+                        perform an inverse transformation using the previuos frame's transformation to express these values in the previous camera frame and project them onto 
+                        the image plane. If a pixel lies within the resolution of the frame, we assign a correspondence to the vertex. This entire process is implemented in CUDA 
+                        to enhance performance.
+                    </p>
+                        <figure>
+                            <img src="../images/Kinect_Fusion/Unaligned_point_clouds.png">
+                            <figcaption> Unaligned Point Clouds </figcaption>
+                        </figure>
+                    <p>
+                        Next we used the linearized point to plane algorithm to iteratively determine the transformations from the current frame to the previous frame's 
+                        vertices, transformed into global coordinates. The problem is formulated as:
+                        \begin{equation}
+                            (\sum \boldsymbol{A^TA}) \boldsymbol{x} = \sum \boldsymbol{A^Tb}
+                        \end{equation}
+                        Here the summands in the matrix A and b correspond to pairs of corresponding points. By calculating the summands and then summing all the 
+                        matrices in parallel, we achieve higher performance.  To optimize memory usage and reduce redundant calculations, we store only the vector 
+                        corresponding to the column major representation of the lower triangular matrix of A. Vector b is also calculated in parallel.
+                        <br>
+                        Finally, the aggregated lower triangular matrix A and vector b are transferred to the host to be solved using the Cholesky solver. To improve 
+                        robustness, we perform the alignment process over 3 subsamplings of the images at different iteration numbers. Additionally, each current frame is 
+                        assigned the previous frame's pose before the ICP method is called, with the assumption that its real pose is close to the previous one.
+                    </p>
+                    <h4> TSDF </h4>
+                        <p>
+                        In TSDF (Truncated Signed Distance Function) we represent the surface of an object by assigning a distance value to each voxel in a 3D grid. 
+                        This distance value represents the distance from the voxel to the nearest surface point.
+                        In global fusion, multiple TSDFs from different frames are combined to create a single, more accurate TSDF. This is done by finding the TSDF 
+                        that is closest to the average of all the other TSDFs. A weight is assigned to each TSDF to reflect its importance.
+                        Weighted running average is a simple yet effective method for achieving real-time performance in global fusion. It allows us to easily integrate 
+                        the TSDFs of multiple frames without sacrificing accuracy.
+                        The global TSDF is then converted into a 3D mesh using the marching cubes algorithm. This mesh can be used for visualization or further processing.
+                        </p>
+                        <figure>
+                            <img src="../images/Kinect_Fusion/TSDF.png">
+                            <figcaption> Marching cubes applied to a 128x128 TSDF grid </figcaption>
+                        </figure>
+                    <h4> Surface Prediction </h4>
+                    <p>
+                        The fourth step is to raycast the TSDF from the current estimated camera position. To obtain the surface explicitly, we cast rays from a single 
+                        position and rays traverse the volume voxel by voxel. Whenever it hits a zero-crossing, we assign that voxel as surface. Then we calculate the vertices 
+                        and normals of the global scene. This yields a dense surface representation of the TSDF. The raycasted model, together with the normal vectors of the 
+                        vertices, is fed to the ICP step for alignment with the new frame. During this work, we encountered some problems while implementing two aspects from the 
+                        original paper: ray skipping and vertex interpolation. Ray skipping could have given us some perfomance boost and vertex interpolation could have yielded 
+                        more accurate surface predictions, but we could not manage to implement them in the correct manner. Therefore, we decided to traverse the ray using a step 
+                        size of one voxel, and consider the voxel right after the surface as out point of intersection. 
+                    </p>
                 </div>
             </div>
       </div>
 
     <script src="../scripts.js"></script>
+
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
     </body>
 
 </html>
