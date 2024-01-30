@@ -205,18 +205,16 @@ li{
     scale: 1.1;
 }
 .div_pp_side_page {    
-    max-width: 20.5vw;
-    max-height: 76.5%;
-    height: 16.5vw;
-    width:auto;
-    scale: 0.9;
+    height: 14.5vw;
+    /* width:auto; */
+    /* scale: 0.9; */
     /* margin: 1% */
 }
 .img_pp_side_page {   
     max-height:100%;
     max-width:100%;
-    width:auto;
-    scale: 0.9;
+    width:11vw;
+    scale: 1.2;
     /* margin: 1% */
 }
 
@@ -404,7 +402,7 @@ li{
 }
 .center_left_side_page {
     display: grid;
-    grid-template-rows: 40fr 2fr;
+    grid-template-rows: 2.22fr 4.58fr 0.42fr;
     height: 100vh;
     /* width: 29%; */
     position: sticky;
@@ -514,6 +512,16 @@ hr {
     font-size: 1.3vw;
     border-right: 2px solid var(--border-colors);
     z-index: 1;
+}
+
+
+.profile_bar {
+    text-align: center;
+    background-color: var(--nav-bar);
+    border-right: 2px solid var(--border-colors);
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #nav_p {
