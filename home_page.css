@@ -107,8 +107,8 @@ html {
     cursor:default;
 }
 #arabic {
-    font-family: waseem;
-    font-size: 9vw;
+    font-family: "Reem Kufi", sans-serif;;
+    font-size: 8vw;
     cursor: default;
 }
 
@@ -801,4 +801,23 @@ img,
 picture,
 video {
   max-width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    #pc {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #mobile {
+        display: none;
+    }
+
+    .home_page_body {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr 5fr;
+    }
+
 }
