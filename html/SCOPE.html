@@ -59,9 +59,9 @@
                           <div class="name_icon">
                               <ul class="horizontal_lists2">
                                   <li> 
-                                      <div class="button_txt" id="poetry_txt">Poetry</div>
+                                      <div class="button_txt" id="blog_txt">Blogs</div>
                                   </li> 
-                                  <li><a class="icon_img2" href="poetry.html"><img class="icon_img2" id="poetry" src="../icons/opaque/book-solid.svg"></a></li>
+                                  <li><a class="icon_img2" href="blog.html"><img class="icon_img2" id="blog" src="../icons/opaque/book-solid.svg"></a></li>
                               </ul>
                           </div>
                           
@@ -87,9 +87,9 @@
             <div class="standalone_project">
                 <h2>Structural Continuity Preservation Networks</h2>
                 <ul class="horizontal_lists">
-                    <li style="margin-right:10%;">
+                    <!-- <li style="margin-right:10%;">
                         <a href="https://arxiv.org/abs/2304.14572"><button class="code-button"><img src="../icons/code-solid.svg"><p>Code</p></button></a>
-                    </li>
+                    </li> -->
                     <li style="margin-right:10%;">
                         <a href="https://arxiv.org/abs/2304.14572"><button class="code-button"><img src="../icons/solid/book-open-solid.svg"><p>Paper</p></button></a>
                     </li>
@@ -102,11 +102,25 @@
                         however, organs are not separate entities; for example, in reality, a severed vessel is an indication of an underlying problem, but traditional segmentation models 
                         are not designed to strictly enforce the continuity of anatomy, potentially lead- ing to inaccurate medical diagnoses. To address this issue, we propose a graph-based 
                         approach that enforces the continuity and connectivity of anatomical topology in medical images. Our method encodes the conti- nuity of shapes as a graph constraint, 
-                        ensuring that the network’s pre- dictions maintain this continuity. We evaluate our method on two public benchmarks on retinal vessel segmentation, showing significant 
-                        improve- ments in connectivity metrics compared to traditional methods while getting better or on-par performance on segmentation metrics.
+                        ensuring that the network’s predictions maintain this continuity. We evaluate our method on two public benchmarks on retinal vessel segmentation, showing significant 
+                        improvements in connectivity metrics compared to traditional methods while getting better or on-par performance on segmentation metrics.
                     </p>
                     <h3> Results </h3>
-                    <h3> Method </h3>
+                        <img src="../images/SCOPE/Qualitative_Results.png">
+                    <h3> Architectural Overview </h3>
+                        <img src="../images/SCOPE/Methodology_new.jpg">
+                        <p> We designed our architecture as follows:
+                            A visual graph is constructed using patches and 1-level edge connections in (A), node features are generated in (B), graph features are extracted in (C) 
+                            and combined with initial spatial features using skip connections, and final image segmentation is produced in (D) by extending node predictions into 
+                            corresponding patches.
+                        </p>
+                        <!-- <br> -->
+                    <h3> Cite </h3>
+                        <p style="margin-left:20%; margin-right: 20%; cursor: auto;">
+                            Yeganeh, Y., Farshad, A., Guevercin, G., Abu-zer, A., Xiao, R., Tang, Y., Adeli, E. and Navab, N., 2023. SCOPE: Structural Continuity Preservation for Medical Image Segmentation. arXiv preprint arXiv:2304.14572.
+                        </p>
+                        <br>
+                        <br>
                 </div>
             </div>
       </div>
