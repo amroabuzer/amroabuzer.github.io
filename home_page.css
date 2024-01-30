@@ -238,6 +238,7 @@ li{
     text-align: center;
     place-content: center;
     cursor: default;
+    height: 30vh;
 }
 
 .projects_header {
