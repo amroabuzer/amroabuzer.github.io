@@ -5,12 +5,12 @@ const scholar = document.getElementById('scholar');
 const email = document.getElementById('email');
 const map = document.getElementById('map');
 const projects = document.getElementById('projects');
-const poetry = document.getElementById('poetry');
+const blog = document.getElementById('blog');
 const watermelon = document.getElementById('watermelon');
 
 const map_txt = document.getElementById('map_txt');
 const project_txt = document.getElementById('project_txt');
-const poetry_txt = document.getElementById('poetry_txt');
+const blog_txt = document.getElementById('blog_txt');
 
 // document.documentElement.setAttribute('data-theme', 'light');
 let mySessionData = sessionStorage;
@@ -185,4 +185,4 @@ document.addEventListener('DOMContentLoaded', toButton(email));
 
 document.addEventListener('DOMContentLoaded', toButtonAndText(map, map_txt));
 document.addEventListener('DOMContentLoaded', toButtonAndText(projects, project_txt));
-document.addEventListener('DOMContentLoaded', toButtonAndText(poetry, poetry_txt));
+document.addEventListener('DOMContentLoaded', toButtonAndText(blog, blog_txt));
