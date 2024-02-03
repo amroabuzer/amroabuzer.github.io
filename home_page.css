@@ -814,6 +814,7 @@ video {
     }
     .home_page_body {
         width: 100vw;
+        /* height: 100vh; */
         display:unset;
     }
 
@@ -823,6 +824,7 @@ video {
         align-items: center;
         flex-direction: column;
         height:unset;
+        height:35dvh
     }
 
     .top_bar .horizontal_lists {
@@ -866,8 +868,8 @@ video {
     }
 
     .center_left {
-        height:unset;
-        display: flex;
+        height:65dvh;
+        /* display: flex; */
         flex-direction: column;
     }
 
