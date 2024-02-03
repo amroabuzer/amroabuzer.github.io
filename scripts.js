@@ -7,10 +7,13 @@ const map = document.getElementById('map');
 const projects = document.getElementById('projects');
 const blog = document.getElementById('blog');
 const watermelon = document.getElementById('watermelon');
+const title = document.getElementById('title');
 
 const map_txt = document.getElementById('map_txt');
 const project_txt = document.getElementById('project_txt');
 const blog_txt = document.getElementById('blog_txt');
+
+const list_of_hellos = ["Hallo", "Hello"];
 
 // document.documentElement.setAttribute('data-theme', 'light');
 let mySessionData = sessionStorage;
@@ -185,5 +188,11 @@ watermelon.addEventListener('click', function(){
         }, 1000);
     }
 });
+
+let counter = 0;
+setInterval(function(){
+        title.textContent = list_of_hellos[counter % list_of_hellos.length];
+        counter++;
+}, 5000)
 
 document.addEventListener('DOMContentLoaded', keep_preferred_theme());
