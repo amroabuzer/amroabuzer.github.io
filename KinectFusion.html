@@ -156,9 +156,7 @@
                     <p>
                         Next we used the linearized point to plane algorithm to iteratively determine the transformations from the current frame to the previous frame's 
                         vertices, transformed into global coordinates. The problem is formulated as:
-                        \begin{equation}
-                            (\sum \boldsymbol{A^TA}) \boldsymbol{x} = \sum \boldsymbol{A^Tb}
-                        \end{equation}
+                        <math display="block" class="tml-display" style="display:block math;"><mtable displaystyle="true" columnalign="left center right" style="width:100%;"><mtr><mtd class="tml-right" style="padding:0.5ex 0em 0.5ex 0em;width:50%;"></mtd><mtd class="tml-left" style="padding:0.5ex 0em 0.5ex 1em;"><mrow><mo form="prefix" stretchy="false">(</mo><mo movablelimits="false">∑</mo><mrow style="font-weight:bold;"><msup><mi>𝑨</mi><mi>𝑻</mi></msup><mi>𝑨</mi></mrow><mo form="postfix" stretchy="false">)</mo><mi>𝒙</mi><mo>=</mo><mo movablelimits="false">∑</mo><mrow style="font-weight:bold;"><msup><mi>𝑨</mi><mi>𝑻</mi></msup><mi>𝒃</mi></mrow></mrow></mtd><mtd class="tml-right" style="padding:0.5ex 0em 0.5ex 0em;width:50%;"><mtext></mtext></mtd></mtr></mtable></math>
                         Here the summands in the matrix A and b correspond to pairs of corresponding points. By calculating the summands and then summing all the 
                         matrices in parallel, we achieve higher performance.  To optimize memory usage and reduce redundant calculations, we store only the vector 
                         corresponding to the column major representation of the lower triangular matrix of A. Vector b is also calculated in parallel.
@@ -212,7 +210,6 @@
       </footer>
     <script src="scripts.js"></script>
 
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
     </body>
 
 </html>
