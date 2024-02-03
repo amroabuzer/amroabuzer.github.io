@@ -106,7 +106,9 @@ let WatermelonButton = {
 
     updateCSS: function() {
         watermelon.style.transform = `rotate(${this.angle}deg)`;
-        mobile_watermelon.style.transform = `rotate(${this.angle}deg)`;
+        if(mobile_watermelon !== null) {
+            mobile_watermelon.style.transform = `rotate(${this.angle}deg)`;
+        }
     },
 
     buttonlogic: function(){
@@ -182,6 +184,17 @@ if(window.innerWidth > 700){
         WatermelonButton.isMouseOver = false;
         WatermelonButton.slight_anti_rotation();
     });
+    if(mobile_watermelon !== null){
+        mobile_watermelon.addEventListener('mouseover', function(){
+            WatermelonButton.isMouseOver = true;
+            WatermelonButton.slight_rotation();
+        });
+        
+        mobile_watermelon.addEventListener('mouseout', function(){
+            WatermelonButton.isMouseOver = false;
+            WatermelonButton.slight_anti_rotation();
+    });
+    }
 
     document.addEventListener('DOMContentLoaded', toButton(twitter));
     document.addEventListener('DOMContentLoaded', toButton(github));
