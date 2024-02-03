@@ -7,16 +7,31 @@ const map = document.getElementById('map');
 const projects = document.getElementById('projects');
 const blog = document.getElementById('blog');
 const watermelon = document.getElementById('watermelon');
+const mobile_watermelon = document.getElementById('watermelon2');
 const title = document.getElementById('title');
+const ar_title = document.getElementById('arabic');
 
 const map_txt = document.getElementById('map_txt');
 const project_txt = document.getElementById('project_txt');
 const blog_txt = document.getElementById('blog_txt');
 
+let mySessionData = sessionStorage;
 const list_of_hellos = ["Hallo", "Hello"];
 
-// document.documentElement.setAttribute('data-theme', 'light');
-let mySessionData = sessionStorage;
+if(mySessionData.getItem("animation_counter") === null){
+    mySessionData.setItem("animation_counter", 0)
+}
+else{
+    if(mySessionData.getItem("animation_counter") == 1) {
+        if(title !== null && ar_title !== null){
+            title.style.animation = "unset";
+            ar_title.style.animation = "unset";
+        }
+    }
+    else {
+        mySessionData.setItem("animation_counter", 1)
+    }
+}
 
 function toButton(element){
     element.addEventListener('mouseover', function(){
@@ -64,8 +79,6 @@ function toButtonAndText(element, element_txt){
 }
 
 function keep_preferred_theme(){
-    console.log(mySessionData.getItem("data-theme"));
-    console.log("test");
     if(mySessionData.getItem("data-theme") == "dark" && !WatermelonButton.red_melon){
         WatermelonButton.angle = WatermelonButton.red_melon_angle;
         WatermelonButton.red_melon = true;
@@ -93,6 +106,7 @@ let WatermelonButton = {
 
     updateCSS: function() {
         watermelon.style.transform = `rotate(${this.angle}deg)`;
+        mobile_watermelon.style.transform = `rotate(${this.angle}deg)`;
     },
 
     buttonlogic: function(){
@@ -189,10 +203,24 @@ watermelon.addEventListener('click', function(){
     }
 });
 
+if(mobile_watermelon !== null){
+    mobile_watermelon.addEventListener('click', function(){
+        if(!WatermelonButton.isMouseClick){
+            WatermelonButton.isMouseClick = true;
+            WatermelonButton.change_side();
+            setTimeout(() => {
+                WatermelonButton.isMouseClick = false;
+            }, 1000);
+        }
+    });
+}
+
 let counter = 0;
 setInterval(function(){
-        title.textContent = list_of_hellos[counter % list_of_hellos.length];
-        counter++;
+        if(title !== null){
+            title.textContent = list_of_hellos[counter % list_of_hellos.length];
+            counter++;
+        }
 }, 5000)
 
 document.addEventListener('DOMContentLoaded', keep_preferred_theme());
