@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../home_page.css" /> 
+    <title>Amr N. Abuzer</title>
+  </head>
+  <body>
+
+        <div class="center_side_page">
+            <div class="center_left_side_page" id="pc"> 
+                <div class="profile_bar">
+                    <a href="home_page.html">
+                        <img class="img_pp_side_page" id="pp" src="../images/Amr.png"/>
+                    </a>
+                </div>
+                
+                <div class="nav_bar">
+                <p id="nav_p">
+                  I’m Amr Abuzer a mechanical engineer and computer science masters student @ TU Munich.
+                  I’m interested in computer vision and biomedical computing.
+                </p>
+                  
+                  <hr>
+                      <ul class="vertical_lists">
+  
+                          <li>
+                              <ul class="horizontal_lists">
+                                  <li class="add_margin"><a href="https://twitter.com/amroabuzer"><img class="icon_img" id="twitter" src="../icons/opaque/twitter.svg"></a></li>
+                                  <li class="add_margin"><a href="https://github.com/amroabuzer"><img class="icon_img" id="github" src="../icons/opaque/github-alt.svg"></a></li>
+                                  <li class="add_margin"><a href="https://www.linkedin.com/in/amr-abuzer"><img class="icon_img" id="linkedin" src="../icons/opaque/linkedin.svg"></a></li>
+                                  <li class="add_margin"><a href="https://scholar.google.de/citations?user=zzd-Hc0AAAAJ&hl=en"><img class="icon_img" id="scholar"src="../icons/opaque/google-scholar.svg"></a></li>
+                                  <li class="add_margin"><a href="mailto:amr.abu-zer@tum.de"><img class="icon_img" id="email" src="../icons/opaque/envelope-solid.svg"></a></li>
+                              </ul>
+                          </li>
+  
+                          <li> 
+                              <div class="name_icon">
+                                  <ul class="horizontal_lists2">
+                                      <li> 
+                                          <div class="button_txt" id="map_txt">TU Munich</div>
+                                      </li> 
+                                      <li> <a href="https://www.tum.de"><img class="icon_img2" id="map" src="../icons/opaque/map-location-solid.svg"> </a></li>
+                                  </ul>
+                              </div>
+                              
+                          </li>
+                      </ul>
+                  <hr>
+                  <ul class="vertical_lists">
+                      <li> 
+                          <div class="name_icon">
+                              <ul class="horizontal_lists2">
+                                  <li> 
+                                      <div class="button_txt" id="project_txt">Projects</div>
+                                  </li> 
+                                  <li><a class="icon_img2" href="projects.html"><img class="icon_img2" id="projects" src="../icons/opaque/clipboard-list-solid.svg"></a></li>
+                              </ul>
+                          </div>
+                          
+                      </li>
+                      <li> 
+                          <div class="name_icon">
+                              <ul class="horizontal_lists2">
+                                  <li> 
+                                      <div class="button_txt" id="blog_txt">Blogs</div>
+                                  </li> 
+                                  <li><a class="icon_img2" href="blog.html"><img class="icon_img2" id="blog" src="../icons/opaque/book-solid.svg"></a></li>
+                              </ul>
+                          </div>
+                          
+                      </li>  
+                  </ul>
+                </div>
+              
+                <footer>
+                  <ul class="horizontal_lists">
+                      <li class="li_pad">Amr Nidal Abuzer</li>
+                      <li>
+                          <div class="watermelon_container">
+                              <img id="watermelon" src="../icons/watermelon.drawio.svg"/>
+                              <div class="semicircle">
+                          </div>
+                      </li>
+                      <hr>
+                      
+                  </ul>
+                </footer>
+              
+          </div>
+          <div class="center_left_side_page" id="mobile">
+            <ul class="horizontal_lists" style="padding: 0%;">
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="projects.html"><img class="icon_img" style="width:30px" id="projects" src="../icons/opaque/clipboard-list-solid.svg"></a></li>
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="home_page.html"><img class="icon_img" id="home" src="../icons/opaque/house-solid.svg"></a></li>
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="blog.html"><img class="icon_img" style="width:32px" id="blogs" src="../icons/opaque/book-solid.svg"></a></li>
+                </ul>
+        </div>
+            <div class="standalone_project">
+                <h2>Robotic Ultrasound Breathing Compensation</h2>
+                <div class="description">
+                    <h3> Introduction </h3>
+                    <p>
+                        This project aims to develop an automated robotic ultrasound system to accurately measure the volume of the aorta, to help diagnose aortic aneurysms using Ultrasound.
+                    </p>
+                    <figure>
+                        <img src="../images/Robot_US/Rotating_AAA.gif">
+                        <figcaption>CT scan of aorta with aneurysm</figcaption>
+                    </figure>
+                    <p>
+                        Already given is an Ultrasound segmentation model known as <a href="https://link.springer.com/chapter/10.1007/978-3-031-16437-8_47">CACTUSS</a>. The goal was to 
+                        compound different slice segmenations along the aorta to create a 3D volume of the whole aorta.
+                        <br>
+                        We first try to get the ground truth ultrasound aortas, using a simple button control scheme that captures the aorta only during the exhale phase.
+                        We then compare it to more experimental approaches using spectral embedding applied to all breathing phases and compare the volumes.
+                    </p>
+                    <h3>Results</h3>
+                        <p>
+                            Ground truth compounded results of the aorta. The green line below the aorta corresponds to the breathing of the patient
+                        </p>
+                            <img src="../images/Robot_US/US_Result.png">
+                        <p>
+                            For the spectral embedding we take an ultrasound sequence that contains one inhale and one exhale, and try to measure the breathing purely from the images of the 
+                            sequence:  
+                        </p>
+                        <video autoplay muted loop class="highlight_images" src="../images/Robot_US/Spectral_Embed.mov" poster="../images/US-button.png">
+                        </video>
+
+                    <h3> Method </h3>
+                    <h4>Button Control Pipeline</h4>
+                    <iframe class="iframe" src="https://www.youtube.com/embed/5505LbYLCPM?si=V3HCgNqcSvg0uaP2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <h4> Spectral Embedding </h4>
+                    
+                    <p>
+                        In spectral embedding we generate graphs from the sequence of images.
+                        Consider a graph with nodes and edges 𝐺 ∈ (𝑉, 𝐸) where: <br> <br></p>
+                    <ol type="a">
+                        <li> 𝑉 correseponds to each image <br></li>
+                        <li> 𝐸 contains weights generated by the heat-kernel equation calculated by evaluating the sum of square distances: </li>
+                        <li> \begin{equation}
+                            w_{𝑖𝑓}=w_{𝑓𝑖}=𝑒^{-\frac{‖𝑣_𝑖−𝑣_𝑓 ‖^2}{ 2𝜎^2 }} <br>
+                        \end{equation}</li>
+                    </ol>
+                    <p>For example, assuming we take 3 consecutive frames, we get a graph with 3 nodes and 3 weights:
+                    </p>
+                        <img style="width:300px;" src="../images/Robot_US/Graph_Example.png">
+                    <p>
+                        We only connect the L nearest neighbour images in the sequence and thus we're able to create a 
+                        <a href="https://en.wikipedia.org/wiki/Adjacency_matrix"> graph adjacency matrix </a>. <br>
+                        After calulating the Laplacian Matrix of the graph (𝐿=𝐷−𝐴), we can calculate the k smallest Eigenvector of Laplacian Matrix:  𝐿𝑓=𝜆𝑓 <br>
+                        <br>
+                        Intuitively what we're doing is reducing the dimensionality of the graph we constructed (in our case to one dimension). This we assume corresponds to the 
+                        breathing direction of the seqeunce of images.
+                        <br>
+                        We also reduce the noise of the Ultrasound images 
+                    </p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+      </div>
+      <footer id="mobile" >
+        <ul class="horizontal_lists">
+            <li class="li_pad">Amr Nidal Abuzer</li>
+            <li>
+                <div class="watermelon_container">
+                    <img id="watermelon2" src="../icons/watermelon.drawio.svg"/>
+                    <div class="semicircle">
+                </div>
+            </li>
+            <hr>
+            
+        </ul>
+      </footer>
+    <script src="../scripts.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+
+    </body>
+
+</html>

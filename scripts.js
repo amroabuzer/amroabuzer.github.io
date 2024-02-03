@@ -5,12 +5,33 @@ const scholar = document.getElementById('scholar');
 const email = document.getElementById('email');
 const map = document.getElementById('map');
 const projects = document.getElementById('projects');
-const poetry = document.getElementById('poetry');
+const blog = document.getElementById('blog');
 const watermelon = document.getElementById('watermelon');
+const mobile_watermelon = document.getElementById('watermelon2');
+const title = document.getElementById('title');
+const ar_title = document.getElementById('arabic');
 
-const map_txt = doucment.getElementById('map_txt');
-const project_txt = doucment.getElementById('project_txt');
-const poetry_txt = document.getElementById('poetry_txt');
+const map_txt = document.getElementById('map_txt');
+const project_txt = document.getElementById('project_txt');
+const blog_txt = document.getElementById('blog_txt');
+
+let mySessionData = sessionStorage;
+const list_of_hellos = ["Hallo", "Hello"];
+
+if(mySessionData.getItem("animation_counter") === null){
+    mySessionData.setItem("animation_counter", 0)
+}
+else{
+    if(mySessionData.getItem("animation_counter") == 1) {
+        if(title !== null && ar_title !== null){
+            title.style.animation = "unset";
+            ar_title.style.animation = "unset";
+        }
+    }
+    else {
+        mySessionData.setItem("animation_counter", 1)
+    }
+}
 
 function toButton(element){
     element.addEventListener('mouseover', function(){
@@ -57,21 +78,37 @@ function toButtonAndText(element, element_txt){
     );
 }
 
-
+function keep_preferred_theme(){
+    if(mySessionData.getItem("data-theme") == "dark" && !WatermelonButton.red_melon){
+        WatermelonButton.angle = WatermelonButton.red_melon_angle;
+        WatermelonButton.red_melon = true;
+        document.documentElement.setAttribute('data-theme', 'dark');
+        WatermelonButton.updateCSS();
+    }
+    else {
+        WatermelonButton.angle = WatermelonButton.yellow_melon_angle;
+        WatermelonButton.red_melon = false;
+        document.documentElement.setAttribute('data-theme', 'light');
+        WatermelonButton.updateCSS();
+    }
+} 
 
 let intervaltime = 1;
 
 let WatermelonButton = {
-    yellow_melon_angle: 135,
-    red_melon_angle: 315,
+    yellow_melon_angle: 140,
+    red_melon_angle: 320,
     red_melon: false,
-    angle: 135,
+    angle: 140,
     rotations: 0,
     isMouseOver: false,
     isMouseClick: false,
 
     updateCSS: function() {
         watermelon.style.transform = `rotate(${this.angle}deg)`;
+        if(mobile_watermelon !== null) {
+            mobile_watermelon.style.transform = `rotate(${this.angle}deg)`;
+        }
     },
 
     buttonlogic: function(){
@@ -82,7 +119,7 @@ let WatermelonButton = {
     },
 
     move_melon: function(goal, dir) {
-        console.log("stop_condition:" + this.buttonlogic());
+        // console.log("stop_condition:" + this.buttonlogic());
         if(dir){
             let timer = setInterval(() => {
                 if(this.angle <= this.goal_in_quad(goal) || this.buttonlogic()) clearInterval(timer);
@@ -90,8 +127,8 @@ let WatermelonButton = {
                 else{
                     this.angle--;
                     this.updateCSS();
-                    console.log('angle:'+this.angle);
-                    console.log('goal:'+this.goal_in_quad(goal));
+                    // console.log('angle:'+this.angle);
+                    // console.log('goal:'+this.goal_in_quad(goal));
                 }
             }, intervaltime);
         }
@@ -111,40 +148,64 @@ let WatermelonButton = {
     },
 
     slight_rotation: function() {
-        if(this.red_melon) this.move_melon(315-45, true);
-        else this.move_melon(135-45, true);
+        if(this.red_melon) this.move_melon(320-45, true);
+        else this.move_melon(140-45, true);
     },
 
     slight_anti_rotation: function() {
-        if(this.red_melon) this.move_melon(315, false);
-        else this.move_melon(135, false);
+        if(this.red_melon) this.move_melon(320, false);
+        else this.move_melon(140, false);
     },
 
     change_side: function() {
         if(this.red_melon) {
-            this.move_melon(135, true); 
+            this.move_melon(140, true); 
             this.red_melon = false; 
             document.documentElement.setAttribute('data-theme', 'light');
+            mySessionData.setItem("data-theme", "light");
         }
         else {
-            this.move_melon(315, true); 
+            this.move_melon(320, true); 
             this.red_melon = true; 
             this.rotations++; 
             document.documentElement.setAttribute('data-theme', 'dark');
+            mySessionData.setItem("data-theme", "dark");
         }
     },
 };
 
-watermelon.addEventListener('mouseover', function(){
-    WatermelonButton.isMouseOver = true;
-    WatermelonButton.slight_rotation();
-});
+if(window.innerWidth > 700){
+    watermelon.addEventListener('mouseover', function(){
+        WatermelonButton.isMouseOver = true;
+        WatermelonButton.slight_rotation();
+    });
+    
+    watermelon.addEventListener('mouseout', function(){
+        WatermelonButton.isMouseOver = false;
+        WatermelonButton.slight_anti_rotation();
+    });
+    if(mobile_watermelon !== null){
+        mobile_watermelon.addEventListener('mouseover', function(){
+            WatermelonButton.isMouseOver = true;
+            WatermelonButton.slight_rotation();
+        });
+        
+        mobile_watermelon.addEventListener('mouseout', function(){
+            WatermelonButton.isMouseOver = false;
+            WatermelonButton.slight_anti_rotation();
+    });
+    }
 
-watermelon.addEventListener('mouseout', function(){
-    WatermelonButton.isMouseOver = false;
-    WatermelonButton.slight_anti_rotation();
-});
+    document.addEventListener('DOMContentLoaded', toButton(twitter));
+    document.addEventListener('DOMContentLoaded', toButton(github));
+    document.addEventListener('DOMContentLoaded', toButton(linkedin));
+    document.addEventListener('DOMContentLoaded', toButton(scholar));
+    document.addEventListener('DOMContentLoaded', toButton(email));
 
+    document.addEventListener('DOMContentLoaded', toButtonAndText(map, map_txt));
+    document.addEventListener('DOMContentLoaded', toButtonAndText(projects, project_txt));
+    document.addEventListener('DOMContentLoaded', toButtonAndText(blog, blog_txt));
+}
 watermelon.addEventListener('click', function(){
     if(!WatermelonButton.isMouseClick){
         WatermelonButton.isMouseClick = true;
@@ -155,12 +216,24 @@ watermelon.addEventListener('click', function(){
     }
 });
 
-document.addEventListener('DOMContentLoaded', toButton(twitter));
-document.addEventListener('DOMContentLoaded', toButton(github));
-document.addEventListener('DOMContentLoaded', toButton(linkedin));
-document.addEventListener('DOMContentLoaded', toButton(scholar));
-document.addEventListener('DOMContentLoaded', toButton(email));
+if(mobile_watermelon !== null){
+    mobile_watermelon.addEventListener('click', function(){
+        if(!WatermelonButton.isMouseClick){
+            WatermelonButton.isMouseClick = true;
+            WatermelonButton.change_side();
+            setTimeout(() => {
+                WatermelonButton.isMouseClick = false;
+            }, 1000);
+        }
+    });
+}
 
-document.addEventListener('DOMContentLoaded', toButtonAndText(map, map_txt));
-document.addEventListener('DOMContentLoaded', toButtonAndText(projects, project_txt));
-document.addEventListener('DOMContentLoaded', toButtonAndText(poetry, poet));
+let counter = 0;
+setInterval(function(){
+        if(title !== null){
+            title.textContent = list_of_hellos[counter % list_of_hellos.length];
+            counter++;
+        }
+}, 5000)
+
+document.addEventListener('DOMContentLoaded', keep_preferred_theme());

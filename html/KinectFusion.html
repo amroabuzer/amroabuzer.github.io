@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../home_page.css" /> 
+    <title>Amr N. Abuzer</title>
+  </head>
+  <body>
+
+        <div class="center_side_page">
+            <div class="center_left_side_page" id="pc"> 
+                <div class="profile_bar">
+                    <a href="home_page.html">
+                        <img class="img_pp_side_page" id="pp" src="../images/Amr.png"/>
+                    </a>
+                </div>
+                
+                <div class="nav_bar">
+                <p id="nav_p">
+                  I’m Amr Abuzer a mechanical engineer and computer science masters student @ TU Munich.
+                  I’m interested in computer vision and biomedical computing.
+                </p>
+                  
+                  <hr>
+                      <ul class="vertical_lists">
+  
+                          <li>
+                              <ul class="horizontal_lists">
+                                  <li class="add_margin"><a href="https://twitter.com/amroabuzer"><img class="icon_img" id="twitter" src="../icons/opaque/twitter.svg"></a></li>
+                                  <li class="add_margin"><a href="https://github.com/amroabuzer"><img class="icon_img" id="github" src="../icons/opaque/github-alt.svg"></a></li>
+                                  <li class="add_margin"><a href="https://www.linkedin.com/in/amr-abuzer"><img class="icon_img" id="linkedin" src="../icons/opaque/linkedin.svg"></a></li>
+                                  <li class="add_margin"><a href="https://scholar.google.de/citations?user=zzd-Hc0AAAAJ&hl=en"><img class="icon_img" id="scholar"src="../icons/opaque/google-scholar.svg"></a></li>
+                                  <li class="add_margin"><a href="mailto:amr.abu-zer@tum.de"><img class="icon_img" id="email" src="../icons/opaque/envelope-solid.svg"></a></li>
+                              </ul>
+                          </li>
+  
+                          <li> 
+                              <div class="name_icon">
+                                  <ul class="horizontal_lists2">
+                                      <li> 
+                                          <div class="button_txt" id="map_txt">TU Munich</div>
+                                      </li> 
+                                      <li> <a href="https://www.tum.de"><img class="icon_img2" id="map" src="../icons/opaque/map-location-solid.svg"> </a></li>
+                                  </ul>
+                              </div>
+                              
+                          </li>
+                      </ul>
+                  <hr>
+                  <ul class="vertical_lists">
+                      <li> 
+                          <div class="name_icon">
+                              <ul class="horizontal_lists2">
+                                  <li> 
+                                      <div class="button_txt" id="project_txt">Projects</div>
+                                  </li> 
+                                  <li><a class="icon_img2" href="projects.html"><img class="icon_img2" id="projects" src="../icons/opaque/clipboard-list-solid.svg"></a></li>
+                              </ul>
+                          </div>
+                          
+                      </li>
+                      <li> 
+                          <div class="name_icon">
+                              <ul class="horizontal_lists2">
+                                  <li> 
+                                      <div class="button_txt" id="blog_txt">Blogs</div>
+                                  </li> 
+                                  <li><a class="icon_img2" href="blog.html"><img class="icon_img2" id="blog" src="../icons/opaque/book-solid.svg"></a></li>
+                              </ul>
+                          </div>
+                          
+                      </li>  
+                  </ul>
+                </div>
+              
+                <footer>
+                  <ul class="horizontal_lists">
+                      <li class="li_pad">Amr Nidal Abuzer</li>
+                      <li>
+                          <div class="watermelon_container">
+                              <img id="watermelon" src="../icons/watermelon.drawio.svg"/>
+                              <div class="semicircle">
+                          </div>
+                      </li>
+                      <hr>
+                      
+                  </ul>
+                </footer>
+              
+          </div>
+          <div class="center_left_side_page" id="mobile">
+            <ul class="horizontal_lists" style="padding: 0%;">
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="projects.html"><img class="icon_img" style="width:30px" id="projects" src="../icons/opaque/clipboard-list-solid.svg"></a></li>
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="home_page.html"><img class="icon_img" id="home" src="../icons/opaque/house-solid.svg"></a></li>
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="blog.html"><img class="icon_img" style="width:32px" id="blogs" src="../icons/opaque/book-solid.svg"></a></li>
+                </ul>
+        </div>
+            <div class="standalone_project">
+                <h2>Kinect Fusion</h2>
+                <a href="https://github.com/ScanAround/KinectFusion-Cool-Edition"><button class="code-button"><img src="../icons/code-solid.svg"><p>Code</p></button></a>
+                <div class="description">
+                    <h3> Introduction </h3>
+                    
+                    <p>
+                        This was an implementation of the <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf">KinectFusion</a> paper by 
+                        Newcombe et. al. We parallelized all parts of the project, and so we make use of cuda for each part. The main goal of the paper is to capture and synthesize 
+                        three-dimensional representations of real-world objects, scenes, or environments from 2D images or point clouds in real-time. We tested our implementation on the 
+                        TUM RGB-D SLAM dataset.
+                    </p>
+                    <h3> Results </h3>
+                    <img class="result_imgs" src="../images/Kinect_Fusion/person.JPG">
+                    <img class="result_imgs" src="../images/KinectFusion512.png">
+                    <h3> Method </h3>
+                    <p>
+                        The project consisted of four main componenets as shown in the figure below:
+                    </p>
+                    <img src="../images/Kinect_Fusion/kin_fus.png">
+                    <h4> Surface Measurement </h4>
+                    <p> 
+                        The first step in the surface measurement process is to apply a bilateral filter to the raw depth map to reduce noise, smoothen the image, and fill in holes. 
+                    </p>
+                    <img src="../images/Kinect_Fusion/Filtered_Depth.png">
+                    <p>
+                        The filtered depth map is then back-projected to a 3D point cloud using the sensor's calibration matrix to generate a vertex map and corresponding vertex validity 
+                        mask.
+                    </p>
+                    <img src="../images/Kinect_Fusion/Point_Cloud.png">
+                    <p> 
+                        Finally, the normal map is created by taking the cross product of two vectors: the vector connecting the pixel with the one above it and the vector connecting the 
+                        pixel with the one to its right. This preprocessing pipeline is applied to a subsampled depth map pyramid to produce vertices and normals for both 2x and 4x 
+                        subsampled depth maps.
+                    </p>
+                    <h4> Pose Estimation </h4>
+                    <p>
+                        In our work we aligned measured surfaces with raycasted "predicted" surfaces from the previous frame as shown in the overview figure.
+                        This alignment process is iterative and begins with an identity transformation for the first frame. We update our Truncated Signed Distance Function (TSDF) 
+                        and obtain raycasted predictions in each iteration. 
+                        <br>
+                        To establish correspondences between the current frame's vertices and normals with those of the previous frame, we employ projective data association, as seen below:
+                    </p>
+                    <figure>
+                        <img src="../images/Kinect_Fusion/projective_data.gif">
+                        <figcaption>Image Source: <a href="https://www.robot-learning.uk/hybrid-icp">https://www.robot-learning.uk/hybrid-icp</a></figcaption>
+                    </figure>
+                    <p>
+                        To find correspondences, we transform the current frame's vertices and normals into global coordinates using our iterative transformation. Then, we 
+                        perform an inverse transformation using the previuos frame's transformation to express these values in the previous camera frame and project them onto 
+                        the image plane. If a pixel lies within the resolution of the frame, we assign a correspondence to the vertex. This entire process is implemented in CUDA 
+                        to enhance performance.
+                    </p>
+                        <figure>
+                            <img src="../images/Kinect_Fusion/Unaligned_point_clouds.png">
+                            <figcaption> Unaligned Point Clouds </figcaption>
+                        </figure>
+                    <p>
+                        Next we used the linearized point to plane algorithm to iteratively determine the transformations from the current frame to the previous frame's 
+                        vertices, transformed into global coordinates. The problem is formulated as:
+                        \begin{equation}
+                            (\sum \boldsymbol{A^TA}) \boldsymbol{x} = \sum \boldsymbol{A^Tb}
+                        \end{equation}
+                        Here the summands in the matrix A and b correspond to pairs of corresponding points. By calculating the summands and then summing all the 
+                        matrices in parallel, we achieve higher performance.  To optimize memory usage and reduce redundant calculations, we store only the vector 
+                        corresponding to the column major representation of the lower triangular matrix of A. Vector b is also calculated in parallel.
+                        <br>
+                        Finally, the aggregated lower triangular matrix A and vector b are transferred to the host to be solved using the Cholesky solver. To improve 
+                        robustness, we perform the alignment process over 3 subsamplings of the images at different iteration numbers. Additionally, each current frame is 
+                        assigned the previous frame's pose before the ICP method is called, with the assumption that its real pose is close to the previous one.
+                    </p>
+                    <h4> TSDF </h4>
+                        <p>
+                        In TSDF (Truncated Signed Distance Function) we represent the surface of an object by assigning a distance value to each voxel in a 3D grid. 
+                        This distance value represents the distance from the voxel to the nearest surface point.
+                        In global fusion, multiple TSDFs from different frames are combined to create a single, more accurate TSDF. This is done by finding the TSDF 
+                        that is closest to the average of all the other TSDFs. A weight is assigned to each TSDF to reflect its importance.
+                        Weighted running average is a simple yet effective method for achieving real-time performance in global fusion. It allows us to easily integrate 
+                        the TSDFs of multiple frames without sacrificing accuracy.
+                        The global TSDF is then converted into a 3D mesh using the marching cubes algorithm. This mesh can be used for visualization or further processing.
+                        </p>
+                        <figure>
+                            <img src="../images/Kinect_Fusion/TSDF.png">
+                            <figcaption> Marching cubes applied to a 128x128 TSDF grid </figcaption>
+                        </figure>
+                    <h4> Surface Prediction </h4>
+                    <p>
+                        The fourth step is to raycast the TSDF from the current estimated camera position. To obtain the surface explicitly, we cast rays from a single 
+                        position and rays traverse the volume voxel by voxel. Whenever it hits a zero-crossing, we assign that voxel as surface. Then we calculate the vertices 
+                        and normals of the global scene. This yields a dense surface representation of the TSDF. The raycasted model, together with the normal vectors of the 
+                        vertices, is fed to the ICP step for alignment with the new frame. During this work, we encountered some problems while implementing two aspects from the 
+                        original paper: ray skipping and vertex interpolation. Ray skipping could have given us some perfomance boost and vertex interpolation could have yielded 
+                        more accurate surface predictions, but we could not manage to implement them in the correct manner. Therefore, we decided to traverse the ray using a step 
+                        size of one voxel, and consider the voxel right after the surface as out point of intersection. 
+                    </p>
+                    <br>
+                    <br>
+                </div>
+            </div>
+      </div>
+    
+      <footer id="mobile" >
+        <ul class="horizontal_lists">
+            <li class="li_pad">Amr Nidal Abuzer</li>
+            <li>
+                <div class="watermelon_container">
+                    <img id="watermelon2" src="../icons/watermelon.drawio.svg"/>
+                    <div class="semicircle">
+                </div>
+            </li>
+            <hr>
+            
+        </ul>
+      </footer>
+    <script src="../scripts.js"></script>
+
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+    </body>
+
+</html>
