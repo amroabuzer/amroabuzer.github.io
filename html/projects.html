@@ -2,13 +2,13 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../home_page.css" /> 
     <title>Amr N. Abuzer</title>
   </head>
   <body>
-
         <div class="center_side_page">
-            <div class="center_left_side_page"> 
+          <div class="center_left_side_page" id="pc"> 
                 <div class="profile_bar">
                     <a href="home_page.html">
                         <img class="img_pp_side_page" id="pp" src="../images/Amr.png"/>
@@ -88,6 +88,13 @@
                 </footer>
               
           </div>
+          <div class="center_left_side_page" id="mobile">
+            <ul class="horizontal_lists" style="padding: 0%;">
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="projects.html"><img class="icon_img" style="width:30px" id="projects" src="../icons/opaque/clipboard-list-solid.svg"></a></li>
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="home_page.html"><img class="icon_img" id="home" src="../icons/opaque/house-solid.svg"></a></li>
+                <li class="add_margin" style="margin-right:10px; margin-left:10px;"><a href="blog.html"><img class="icon_img" style="width:32px" id="blogs" src="../icons/opaque/book-solid.svg"></a></li>
+                </ul>
+        </div>
           <div class="center_right_side_page">
 
               <div class="projects_header">
@@ -102,7 +109,7 @@
                             <img src="../images/KinectFusion512.png" />
                             <div class="description_bullet_points"> 
                                 <h3> Kinect Fusion</h3>
-                                <p> 
+                                <p id="pc"> 
                                     This was an implementation of the KinectFusion paper by Newcombe et. al. We parallelized all parts of the project,
                                     and so we make use of cuda for each part. We also included CPU-based executions, with both windows and linux supported builds.
                                 </p>
@@ -114,7 +121,7 @@
                             <img src="../images/MLMI.jpg">
                             <div class="description_bullet_points"> 
                                 <h3> Structural Continuity Preservation Networks</h3>
-                                <p> 
+                                <p id="pc"> 
                                     This was investigation to the limits of topological understanding of various neural networks specifically towards Fundus Images. We also developed
                                     a graph neural network based architecture to deal with these drawbacks.
                                 </p>
@@ -127,7 +134,7 @@
                             </video>
                             <div class="description_bullet_points"> 
                                 <h3> Robotic Ultrasound Breathing Compensation </h3>
-                                <p> 
+                                <p id="pc"> 
                                     This was a breathing compensation project for robotic ultrasound aiming at capturing a coherent aorta volume given 2d slices. We capture these volumes using
                                     a button based method and later compare them with a spectral embedding approach.
                                 </p>
@@ -139,7 +146,7 @@
                             <img src="../images/Team_Ceres.jpg">
                             <div class="description_bullet_points"> 
                                 <h3>Presymptomatic Covid Prediction</h3>
-                                <p> 
+                                <p id="pc"> 
                                     This was a hackathon project in the TUM.ai makethon. We explored different methods to detect, presymptomatically, coronavirus in patients based on heart rate
                                     aggregated by fitness bands.
                                 </p>
@@ -150,7 +157,7 @@
                             <img src="../images/Bus Route planning.jpg">
                             <div class="description_bullet_points" style="cursor: default;"> 
                                 <h3>School Buses Route Optimization</h3>
-                                <p> 
+                                <p id="pc"> 
                                     This was a project to support a school made up of 668 students and 30 buses, to optimize for the bus routes within the city of Abu Dhabi, UAE. We optimized for a 
                                     vehicle routing problem but with capacity constraints using Google's OR-Tools. This reduced maximum route time by 1.5 hours. 
                                 </p>
@@ -159,9 +166,21 @@
                 </ul>
               </div>
           </div>
-          
-      </div>
 
+      </div>
+      <footer id="mobile" >
+        <ul class="horizontal_lists">
+            <li class="li_pad">Amr Nidal Abuzer</li>
+            <li>
+                <div class="watermelon_container">
+                    <img id="watermelon2" src="../icons/watermelon.drawio.svg"/>
+                    <div class="semicircle">
+                </div>
+            </li>
+            <hr>
+            
+        </ul>
+      </footer>
     <script src="../scripts.js"></script>
     </body>
 
