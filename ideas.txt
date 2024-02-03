@@ -2,16 +2,20 @@ Required:
 1- animate watermelon - done
 2- dark/light mode - done
 3- add links to the buttons - done
-4- projects animations:
+4- projects animations: - done
     - Buses project
     - PMSD robotics project
     - kinect fusion project
     - makeathon project
-5- add under construction for poetry and books
-6- fix up button mask 
-7- different aspect ratios
+5- add under construction for poetry and books - done
+6- fix up button mask - done
+
+7- better font scaling - based on initial viewport size (look at google) - DONE
+8- mobile website - DONE
+    9- publish website
+10- why is javascript stopping working after mobile query - done
 
 Optional:
-1- Add easter egg game
+    1- Add easter egg game
 2- put animation around profile when hovering - done
-3- add changing hellos
+3- add changing hellos - done
