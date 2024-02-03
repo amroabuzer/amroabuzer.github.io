@@ -155,16 +155,27 @@ let WatermelonButton = {
     },
 };
 
-watermelon.addEventListener('mouseover', function(){
-    WatermelonButton.isMouseOver = true;
-    WatermelonButton.slight_rotation();
-});
+if(window.innerWidth > 700){
+    watermelon.addEventListener('mouseover', function(){
+        WatermelonButton.isMouseOver = true;
+        WatermelonButton.slight_rotation();
+    });
+    
+    watermelon.addEventListener('mouseout', function(){
+        WatermelonButton.isMouseOver = false;
+        WatermelonButton.slight_anti_rotation();
+    });
 
-watermelon.addEventListener('mouseout', function(){
-    WatermelonButton.isMouseOver = false;
-    WatermelonButton.slight_anti_rotation();
-});
+    document.addEventListener('DOMContentLoaded', toButton(twitter));
+    document.addEventListener('DOMContentLoaded', toButton(github));
+    document.addEventListener('DOMContentLoaded', toButton(linkedin));
+    document.addEventListener('DOMContentLoaded', toButton(scholar));
+    document.addEventListener('DOMContentLoaded', toButton(email));
 
+    document.addEventListener('DOMContentLoaded', toButtonAndText(map, map_txt));
+    document.addEventListener('DOMContentLoaded', toButtonAndText(projects, project_txt));
+    document.addEventListener('DOMContentLoaded', toButtonAndText(blog, blog_txt));
+}
 watermelon.addEventListener('click', function(){
     if(!WatermelonButton.isMouseClick){
         WatermelonButton.isMouseClick = true;
@@ -176,13 +187,3 @@ watermelon.addEventListener('click', function(){
 });
 
 document.addEventListener('DOMContentLoaded', keep_preferred_theme());
-
-document.addEventListener('DOMContentLoaded', toButton(twitter));
-document.addEventListener('DOMContentLoaded', toButton(github));
-document.addEventListener('DOMContentLoaded', toButton(linkedin));
-document.addEventListener('DOMContentLoaded', toButton(scholar));
-document.addEventListener('DOMContentLoaded', toButton(email));
-
-document.addEventListener('DOMContentLoaded', toButtonAndText(map, map_txt));
-document.addEventListener('DOMContentLoaded', toButtonAndText(projects, project_txt));
-document.addEventListener('DOMContentLoaded', toButtonAndText(blog, blog_txt));
