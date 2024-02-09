@@ -96,10 +96,12 @@ function keep_preferred_theme(){
 let intervaltime = 1;
 
 let WatermelonButton = {
-    yellow_melon_angle: 140,
-    red_melon_angle: 320,
+    // yellow_melon_angle: 140,
+    // red_melon_angle: 320,
+    yellow_melon_angle: 135,
+    red_melon_angle: 315,
     red_melon: false,
-    angle: 140,
+    angle: 135,
     rotations: 0,
     isMouseOver: false,
     isMouseClick: false,
@@ -148,24 +150,24 @@ let WatermelonButton = {
     },
 
     slight_rotation: function() {
-        if(this.red_melon) this.move_melon(320-45, true);
-        else this.move_melon(140-45, true);
+        if(this.red_melon) this.move_melon(this.red_melon_angle-45, true);
+        else this.move_melon(this.yellow_melon_angle-45, true);
     },
 
     slight_anti_rotation: function() {
-        if(this.red_melon) this.move_melon(320, false);
-        else this.move_melon(140, false);
+        if(this.red_melon) this.move_melon(this.red_melon_angle, false);
+        else this.move_melon(this.yellow_melon_angle, false);
     },
 
     change_side: function() {
         if(this.red_melon) {
-            this.move_melon(140, true); 
+            this.move_melon(this.yellow_melon_angle, true); 
             this.red_melon = false; 
             document.documentElement.setAttribute('data-theme', 'light');
             mySessionData.setItem("data-theme", "light");
         }
         else {
-            this.move_melon(320, true); 
+            this.move_melon(this.red_melon_angle, true); 
             this.red_melon = true; 
             this.rotations++; 
             document.documentElement.setAttribute('data-theme', 'dark');
