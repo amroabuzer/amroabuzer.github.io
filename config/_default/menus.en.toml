@@ -1,0 +1,33 @@
+[[main]]
+none = "none"
+
+[[main]]
+name = "cv"
+icon = "file-text"
+url = "http://localhost:1313/files/mycv.pdf"
+weight = 1
+
+  [main.params]
+  target = "_blank"
+
+[[main]]
+name = "projects"
+pageRef = "projects"
+identifier = "OmmhpUh6mr"
+weight = 3
+
+[[main]]
+name = "publications"
+pageRef = "publications"
+identifier = "aFn1U90sTM"
+weight = 3
+
+
+[[main]]
+name = "poems"
+pageRef = "poems"
+identifier = "uIG2ZG6nj8"
+weight = 9_999
+
+[[footer]]
+none = "none"

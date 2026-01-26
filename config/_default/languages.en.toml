@@ -1,0 +1,36 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "ʕ■ᴥ■ʔ"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2bu006"
+logo = "amr_icon2\\(1\\).png"
+secondaryLogo = "amr_icon2\\(1\\).png"
+
+[[params.author.links]]
+email = "mailto:amroabuzer@gmail.com"
+
+[[params.author.links]]
+github = "https://github.com/amroabuzer"
+
+[[params.author.links]]
+goodreads = "https://www.goodreads.com/user/show/53208018-amr"
+
+[[params.author.links]]
+graduation-cap = "https://scholar.google.de/citations?user=zzd-Hc0AAAAJ&hl=en"
+
+[[params.author.links]]
+linkedin = "https://www.linkedin.com/in/amr-abuzer/"
+
+["params.author"]
+name = "Amr Nidal Abuzer"
+email = "amroabuzer@gmail.com"
+image = "img/amr.png"
+imageQuality = "99"
+bio = false
+headline = "computer vision engineer | mechanical engineer"
