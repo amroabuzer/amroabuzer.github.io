@@ -4,7 +4,7 @@ none = "none"
 [[main]]
 name = "cv"
 icon = "file-text"
-url = "http://localhost:1313/files/mycv.pdf"
+url = "http://amroabuzer.github.io/files/mycv.pdf"
 weight = 1
 
   [main.params]
