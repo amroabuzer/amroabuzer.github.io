@@ -4,7 +4,7 @@ none = "none"
 [[main]]
 name = "cv"
 icon = "file-text"
-url = "files/mycv.pdf"
+url = "static/files/mycv.pdf"
 weight = 1
 
   [main.params]
